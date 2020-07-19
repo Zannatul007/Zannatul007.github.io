@@ -5,9 +5,9 @@ header>h1{
 	text-transform: uppercase;
 	text-align:center;
 	color:#000000;
-	background:#8c8a8d;
+	
 	border-radius:20px;
-	/*margin:4%;*/
+	background:linear-gradient(#3a3e2c,#c7cabc);
 	padding:4%;
 	opacity:70%;
 	
@@ -41,12 +41,13 @@ body,html{
 
 }
 div{
-	background-color:#FFFFFF;
+	
 	color:#000000;
 	opacity:80%;
 	border-radius:2px;
 	padding:10px;
 	font-size:20px;
+	background:linear-gradient(#3a3e2c,#c7cabc);
 }
 a{
 	display:inline-block;
@@ -71,7 +72,7 @@ a:active{
 	/*background-image:url("../images/colorz.jpg");*/
 	background-repeat: no-repeat;
     background-size: 50% 50%;
-	border-style: dashed;
+	
 	border-radius:2px;
 	border-color:#696969;
 	opacity:95%;
