@@ -26,9 +26,7 @@ body,html{
 	padding:4px;
 	background-image:url("../images/background.jpg");
 	background-size:cover;
-	border-style: dashed;
-	border-radius:2px;
-	border-color:#696969;
+	
 }
 .head{
 	font-family:Impact, Charcoal, sans-serif;
