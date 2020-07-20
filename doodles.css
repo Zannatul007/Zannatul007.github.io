@@ -87,9 +87,9 @@ nav li ul li {
  header{
   font-family: Impact, Charcoal, sans-serif;
   background-color:inherit;
-  /*background:linear-gradient(#c1c1c1,#f3dbdb);*/
-  
   text-align:center;
+  font-size:60px;
+  /*background:linear-gradient(#c1c1c1,#f3dbdb);*/
   
 
  }
@@ -140,7 +140,7 @@ h4{
 }
 h1{
   background:linear-gradient(#c1c1c194,#f3dbdb);
-  
+  border:3px solid #c1c1c194;
   border-radius:5px;
 }
 h3{
