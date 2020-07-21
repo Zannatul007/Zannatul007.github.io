@@ -104,8 +104,8 @@ section{
 }
 .col1{
   
-  flex: 33.33%;
-      padding: 2px;
+  flex: 20%;
+      padding:2px;
       background-color: black;
       opacity:100%;
 }
@@ -113,18 +113,6 @@ section{
    display: flex;
    background-color: black;
 }
-.col2{
-  
-  flex: 33.33%;
-      padding:2px;
-      opacity:100%;
-      
-     
-
-}
-.row2{
-   display: flex;
-   background-color:black
 
   
 
@@ -145,10 +133,25 @@ h3{
   width:50%;
   height:50%;
 }
-p{
+.def{
   background:linear-gradient(#c1c1c194,#f3dbdb);
-  
   border-radius:5px;
   font-size:23px;  
   padding:5px;
+
 }
+p{
+  clear:both;
+  overflow:auto;
+  background:linear-gradient(#c1c1c194,#f3dbdb);
+  text-align:left;
+  font-size:25px;
+}
+
+iframe{
+  clear:both;
+
+  width:420px ;
+  height:415px;
+}
+
