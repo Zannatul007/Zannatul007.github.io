@@ -1,11 +1,9 @@
-
-body {
-  margin: 0;
-  padding: 0;
-  background-image:url("images/background.jpg");
-  opacity:1;
+body{
+    margin: 2px;
+    padding: 2px;
+    background-image: url(images/background.jpg);
+    opacity: 1;
 }
-
 nav ul {
   list-style: none;
   background-color: #495175c2;
