@@ -95,14 +95,14 @@ header{
  }
  h2{
  font-family: Impact, Charcoal, sans-serif;
-    background: linear-gradient(#66bb77de,#dc5c36b3);
+    background: linear-gradient(#c1c1c194,#f3dbdb);
     border-radius: 5px;
     font-size: 50px;
     text-align: center;
     padding: 10px;
   }
  h3 {
-    background: linear-gradient(#66bb77de,#dc5c36b3);
+    background: linear-gradient(#c1c1c194,#f3dbdb);
     border-radius: 5px;
     font-size: 30px;
     text-align: left;
@@ -111,20 +111,13 @@ header{
  p{
   clear:both;
   overflow:auto;
-  background:linear-gradient(#7db160ad,#9a4f4f80);
-  text-align:left;
-  font-size:20px;
-  padding:2%;
-}
-p.intro
-{
-  clear:both;
-  overflow:auto;
   background:linear-gradient(#c1c1c194,#f3dbdb);
   text-align:left;
   font-size:20px;
   padding:2%;
+  
 }
+
 img{
   height:50%;
   width:50%;
