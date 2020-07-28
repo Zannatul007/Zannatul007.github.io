@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1c9e92e3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        
+        .sidenav a,
+        .dropdown-btn {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            background-color: #34a89e;
+            cursor: pointer;
+            border: none;
+            opacity: .80
+        }
+        
+        .carousel-item {
+            display: none;
+            position: relative;
+            transition(.1s ease-in-out left);
+        }
+        
+        .sidenav a:hover {
+            color: #FFFF00;
+        }
+        
+        .dropdown-btn:hover {
+            color: #FFFF00;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        /*  #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }*/
+        /*.active {
+        background-color: green;
+        color: white;
+      }
+      */
+        
+        .dropdown-container {
+            display: none;
+            background-color: #fffff;
+            padding-left: 8px;
+        }
+        /* Optional: Style the caret down icon */
+        
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        hr {
+            border: 1px solid#34a89e;
+        }
+        
+        iframe {
+            float: right;
+            height: 50%;
+            width: 50%;
+        }
+        
+        .btn-primary {
+            float: right;
+        }
+        
+        header>h5 {
+            padding: 2px;
+            text-decoration: underline;
+            text-decoration-color: #34a89e;
+            font-size: 35px;
+        }
+        
+        summary {
+            width: 75px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+        }
+        
+        footer {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!--sidenav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
+      >
+      <a href="#">Home</a>
+
+        <button class="dropdown-btn">
+        Meal
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-container">
+            <a href="#"><small>Bangali Recipe</small></a>
+            <a href="#"><small>Chinese Recipe</small></a>
+            <a href="#"><small>Indonesian Recipe</small></a>
+        </div>
+        <a href="#">Snacks</a>
+        <a href="#">Dessert</a>
+        <a href="#">Drinks</a>
+    </div>
+    <div id="main">
+        <span id="side-nav-open" style="font-size: 30px; cursor: pointer;" onclick="openNav()">&#9776;<strong class="font-weight-bold" >Culinary & Cuisine</strong> </span
+      >
+      <script>
+        function openNav() {
+          document.getElementById("side-nav-open").style.display = "none";
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        function closeNav() {
+          document.getElementById("side-nav-open").style.display = "block";
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function () {
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script><!--Ending Sidenav-->
+      
+<!--alert and marquee-->
+       <div class="container">
+        <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> Recipe details are directly from our kitchen or from our Moms’ recipe notes. 
+            Cooking videos provided here are from internet. That’s why, they can vary a little bit. 
+            We apologize! You can try any of them or customize your dish in your own way. Good luck!!
+          </div>
+     <marquee class="display-2 font-weight-bold"> Snacks!!!</marquee>
+     </div>
+  
+     <div class="img-container" style="text-align:center;">
+        <img src="img/chocpiz.jpg" class="img-thumbnail" style="width:981px;height:50%"/>
+     </div>
+     <hr>
+
+     <!--toast-->
+     <div class="container">
+      <details><summary>About</summary>Chocolate pizza combines chocolate and pizza, two popular ingredients among school-aged children. The confluence of pizza and chocolate developed in parallel in several Western countries and has become a dessert purveyed in franchise and chain restaurants.
+        Chocolate pizza is also known as a Valentine's Day,Easter and Christmas holiday treat</details>
+    </div>
+
+        <!--ending toast-->
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+     <div class="container">
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For pizza toppings</strong></h5></header>
+      <br>
+      <ul>
+      <li>2 teaspoons butter, melted</li>
+      <li>2 tablespoons cocoa powder</li>
+      <li>1/4 cup chocolate-hazelnut spread (recommended: Nutella)/melted Dark chocolate</li>
+      <li>1/2 cup semisweet chocolate chips</li>
+      <li>4 tablespoons white chocolate chips</li>
+      <li>2 tablespoons chopped hazelnuts, toasted</li>
+      </ul>
+      <header>
+      <h5><strong>For pizza Dough</strong></h5></header>
+      <br>
+      <ul>
+      <li>3/4 cup all purpose flour</li>
+      <li>2 spoon yeast</li>
+      <li>Salt on taste</li>
+      <li>2 spoon oil</li>
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Pizza Dough</strong></h5></header>
+      <p>
+        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Related Video</button>
+      <div id="demo" class="collapse">
+      <iframe src="https://www.youtube.com/embed/kfsslL8tx4M"></iframe></div>
+      <strong style="font-size:20px"> Step 1:</strong>Mix warm water and yeast in a small bowl to blend. Then wait for 10 minutes for activated yeast .<br>
+      <strong style="font-size:20px">Step 2:</strong>Mix the flour and salt in another bowl , add the yeast mixture  and also oil. Blend just until the dough forms. Turn the dough out onto lightly floured surface and knead until smooth, about 1 minute. Transfer the dough to a large oiled bowl and turn the dough to coat with the oil. Cover the bowl with plastic wrap and set aside in a warm draft-free area until the dough doubles in volume, about 1 hour<br>
+      <strong style="font-size:20px">Step 3:</strong>Punch the down dough and form into ball. The dough can be used immediately or stored airtight in the refrigerator for 1 day.<br>
+      <br>
+
+
+      <header><h5><strong>Final Pizza</strong></h5></header>
+
+      <strong style="font-size:20px"> Step 1:</strong>Take a rounded pizza tray about to 9-10inches.Then  brush the melted butter and spread the pizza dough as thin as you can<br>
+      <strong style="font-size:20px">Step 2:</strong>Immediately spread the chocolate-hazelnut spread over the pizza then sprinkle all the chocolate chips over. Bake just 20 minutes about 200-220C to melt the chocolate and crisp the dough.Then sprinkle the hazelnut ,cut into wedges and serve.<br>
+      </p>
+
+
+
+<!-- Recipe 2-->
+
+<div class="img-container" style="text-align:center;">
+  <img src="img/texas.jpg" class="img-thumbnail" style="width:981px;height:50%"/>
+</div>
+<hr>
+   <!--toast-->
+   
+    <div class="container">
+      <details><summary>About</summary>Chocolate pizza combines chocolate and pizza, two popular ingredients among school-aged children. The confluence of pizza and chocolate developed in parallel in several Western countries and has become a dessert purveyed in franchise and chain restaurants.
+        Chocolate pizza is also known as a Valentine's Day,Easter and Christmas holiday treat</details>
+    </div>
+
+      <!--ending toast-->
+    
+
+
+
+
+
+<br>
+   <div class="container">
+    <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+      <br><h5><strong>For pizza toppings</strong></h5></header>
+    <br>
+    <ul>
+    <li>200gm chicken</li>
+    <li>2 spoon lemon juice</li>
+    <li>1 spoon red chili powder</li>
+    <li>1 spoon black pepper</li>
+    <li>sliced 6/7 pieces of  mushroom</li>
+    <li>1spoon Garam masala </li>
+    <li>1spoon sugar </li>
+    <li>salt on taste </li>
+    <li>4 spoon bbq sauce</li>
+    <li>3/4 spoon pizza sauce</li>
+    <li>1/2 cup of cheese</li>
+    <li>1/4 cup green/red capsicum</li>
+    <li>1spoon sweet corn</li>
+    <li>1spoon oregano</li>
+    <li>About 1 pound of dough(the dough recipe is attached previous recipe without using cocoa powder)</li>
+
+    </ul>
+    <br>
+    <header><h1><strong>D</strong><small>irection</small></h1><hr>
+      <br><h5><strong>Pizza Toppings</strong></h5></header>
+    <p>
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Related Video</button>
+    <div id="demo" class="collapse">
+    <iframe src="https://www.youtube.com/embed/kfsslL8tx4M"></iframe></div>
+    <strong style="font-size:20px"> Step 1:</strong>With all the spices and BBQ sauce marinate the chicken for 20 minutes. Then fry with a small amount of oil. With some black pepper also fry the sliced mushroom<br>
+    <br>
+
+
+    <header><h5><strong>Final Pizza</strong></h5></header>
+
+    <strong style="font-size:20px"> Step 1:</strong>Take a rounded pizza tray about to 9-10inches.Then  brush the melted butter and spread the pizza dough as thin as you can<br>
+    <strong style="font-size:20px">Step 2:</strong>Spread the pizza sauce over the pizza and sprinkle with capsicum  and place your desired toppings on the pizza.And at last add the load of cheese how much you want and also sprinkle some oregano <br>
+    <strong style="font-size:20px">Step 3:</strong>With zigzag design pour the bbq sauce on the top of pizza.Then bake just 20 minutes about  200-220C to crisp the dough and melt the cheese. Cut into wedges and serve.<br>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <footer ><small style="font-size:15px;"><i>©This website is created by</small> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fzannatul-fardaush-tripty-8481241b2%3Ffbclid%3DIwAR1TQtJ4nEucIXE09jH-pxH_LYXGmaQH8QX-vE0oo3OoQV5lG6Vt6KJzr_U&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Zannatul Fardaush</a> &<a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fnidita-roy-0537b31b0%3Ffbclid%3DIwAR2HkdKC06u1jO3yEb0IUqraysJd5p4F-vu-EnYnyxnNxQXJdIGlAJvyBJM&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Nidita Roy</i></b></a></footer>
+      
+      
+      </body>
+      </html>
