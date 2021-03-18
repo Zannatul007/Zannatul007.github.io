@@ -1,0 +1,289 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3%;
+            background-color: #259285d1;
+            color: white;
+            text-align: center;
+            font-family: Roboto;
+            font-weight: 100;
+            font-size: 1rem;
+        }
+        
+        footer>div>a {
+            color: black;
+            font-size: 1.5rem;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        body {
+            margin: 1.5vw;
+            padding: 1.5vw;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+        }
+        
+        .carousel,
+        .item,
+        .active {
+            height: 100vh;
+        }
+        
+        .carousel {
+            top: 0;
+        }
+        
+        .carousel-inner {
+            height: 100vh;
+        }
+        
+        .carousel-inner img {
+            margin: auto;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1c9e92e3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 5vw;
+        }
+        
+        .sidenav a,
+        .dropdown-btn {
+            padding: 1vw 2vw .5vw 5vw;
+            text-decoration: none;
+            font-size: 1.9vw;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            background-color: #34a89e;
+            cursor: pointer;
+            border: none;
+            opacity: .80
+        }
+        /*  .carousel-item {
+        display: none;
+        position: relative;
+        transition(.1s ease-in-out left);
+    }
+  */
+        
+        .sidenav a:hover {
+            color: #FFFF00;
+        }
+        
+        .dropdown-btn:hover {
+            color: #FFFF00;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 6vw;
+            font-size: 4vw;
+            margin-left: 13vw;
+        }
+        
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+        /*.active {
+  background-color: green;
+  color: white;
+}
+*/
+        
+        .dropdown-container {
+            display: none;
+            background-color: #fffff;
+            padding-left: 2vw;
+        }
+        /* Optional: Style the caret down icon */
+        
+        .fa-caret-down {
+            float: right;
+            padding-right: 2vw;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18vw;
+            }
+        }
+        
+        q {
+            text-align: justify;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        footer {
+            text-align: right;
+        }
+        
+        .carousel-item {
+            margin-bottom: 0 !important;
+        }
+    </style>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
+>
+        <a href="index.html">Home</a>
+
+        <button class="dropdown-btn">Meal&nbsp;&nbsp;<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="BengaliVegetarianRecipes.html"><small>Bangali Vegetarian Recipe</small></a>
+            <a href="BengaliNon-VegetarianRecipes.html"><small>Bengali Non-vegetarian  Recipe</small></a>
+            <a href="ChineseRecipe.html"><small>Chinese Recipe</small></a>
+            <a href="IndonesianRecipe.html"><small>Indonesian Recipe</small></a>
+        </div>
+        <a href="snacks.html">Snacks</a>
+        <a href="Dessert.html">Dessert</a>
+        <a href="drinks.html">Drinks</a>
+    </div>
+</head>
+
+<body>
+    <div id="main">
+        <span id="side-nav-open" style="font-size: 4vw;cursor: pointer; position: fixed;z-index:1; background-color:white ;color:black;width:100%;top:0" onclick="openNav()">&#9776;<strong class="font-weight-bold" >Culinary & Cuisine</strong> </span>
+        <br> <br>
+        <script>
+            function openNav() {
+                document.getElementById("side-nav-open").style.display = "none";
+                document.getElementById("mySidenav").style.width = "25%";
+                document.getElementById("main").style.marginLeft = "25%";
+            }
+
+            function closeNav() {
+                document.getElementById("side-nav-open").style.display = "block";
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>
+
+        <div id="demo" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="img-fluid" src="imagereciepe/biriyanizannatul.v1 (1).jpg" width="100%" height="50%" />
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid" src="imagereciepe/pizzazannatul.v1 (1).jpg" width="100%" height="50%" />
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid" src="imagereciepe/brownie (1).jpg" width="100%" height="50%" />
+                </div>
+
+                <div class="carousel-item">
+                    <img class="img-fluid" src="imagereciepe/drinksjannatul.jpg" width="100%" height="50%" />
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid" src="imagereciepe/fish.jpg" width="100%" height="40%" />
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <h3 style="text-align:center;"><b>Our Memories With Food!</b></h3>
+
+        <p> <q><i>I don&apos;t know about others, I can connect food with all the memories from my childhood to now. 
+  I can start from beginning. My mom used to spend her whole day for feeding me only some spoons of hotchpotch as I had a bitter feeling on having foods.
+   I grew up and started to go to school. The tiffin-box that my mom provided me in primary-school days seemed to me like surprise box.
+    When I was in high school I was really keen to know about the mid-day meal of school and eagerly waiting for going home
+     to have the delicious lunch with my family. The enjoyable birthday parties with lot of delicious foods and friends, going to restaurant
+      for achieving exam goals are really precious moments of my life. The festival days with my grandma and her
+       heavenly cooking are actually out of world. Even my vacations with my cousins become more enjoyable with foods. <br>
+       I know, I have complained to my mother a lot about her cooking. Now in university life, I miss her cooking most.   When I come home, that divine ambrosia gives me a touch of happiness and care. Nowadays I try to cook for my family, take the recipes from my mom and help my dad in his cooking experiments.
+ <br><b> Food is emotion, food is life.</b></i></q></p>
+        <h4 style="text-align:right;"><b>~Nidita Roy</b></h4>
+        <div class="container">
+            <img src="imagereciepe/carrot.v1.jpg" alt="Paris" width="30%" height="30%" class="center">
+        </div>
+        <p> <q><i>Obviously I was not born as a foodie but day by day I actually don&apos;t know what&apos;s wrong with me,I am craving all the time to taste different kind of foods where in my childhood I used to ignite my mother a lot only for feeding me.But now that little me has been changed a lot.Almost everyday  I  try  to cook somethink experimental  and delicious to make my family happy.If you are not connected with cooking directly then you never know what joy  it will be to put a smile on your beloved ones. But sometimes I made disasters,tortured my siblings to taste my tasteless foods and they criticised me a lot .Yes obviously from this criticism I also find happiness and my mistakes.In a real sense cooking actually is- 
+            <br><b>The only real stumbling block is fear of failure. In cooking you&apos;ve got to have a what-the-hell attitude</b></i></q></p>
+        <h4 style="text-align:right;"><b>~Zannatul Fardaush</b></h4>
+
+
+        <h3 style="text-align:center;"><b>Where Can You Find The Recipes??</b></h3>
+
+        <p><i>On the top-left side you can see <span class="glyphicon">&#xe236;</span> icon. Here you can easily check snacks, drinks and desert recipes and
+             in the meal section you can find Bengali, Chinese and Indonesian recipes. Explore!! </i></p>
+
+        <h3 style="text-align:center;"><b>Why We Created This Page??</b></h3>
+        <p><i>We care for you!!<br> We want to make your daily life more healthy and to make your festivals more vibrant, we also try to bring a smile of
+satisfaction in your beloved&apos;s face by the food prepared by you and also to make you satisfied after watching that smile.</i></p>
+    </div>
+    <footer>
+
+        <div class="container">
+            <small style="font-size:10px;">&copy;This website is created by</small> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fzannatul-fardaush-tripty-8481241b2%3Ffbclid%3DIwAR1TQtJ4nEucIXE09jH-pxH_LYXGmaQH8QX-vE0oo3OoQV5lG6Vt6KJzr_U&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Zannatul Fardaush </a>            <small>&</small><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fnidita-roy-0537b31b0%3Ffbclid%3DIwAR2HkdKC06u1jO3yEb0IUqraysJd5p4F-vu-EnYnyxnNxQXJdIGlAJvyBJM&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA"> Nidita Roy</i></b></a>
+        </div>
+    </footer>
+    </div>
+</body>
+
+</html>

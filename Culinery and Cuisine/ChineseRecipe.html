@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4%;
+            background-color: #259285d1;
+            color: white;
+            text-align: center;
+            font-family: Roboto;
+            font-weight: 100;
+            font-size: 1;
+        }
+        
+        footer>div>a {
+            color: black;
+            font-size: 1.25rem;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1c9e92e3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 5vw;
+        }
+        
+        .sidenav a,
+        .dropdown-btn {
+            padding: 1vw 2vw .5vw 5vw;
+            text-decoration: none;
+            font-size: 1.9vw;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            background-color: #34a89e;
+            cursor: pointer;
+            border: none;
+            opacity: .80
+        }
+        
+        .carousel-item {
+            display: none;
+            position: relative;
+            transition(.1s ease-in-out left);
+        }
+        
+        .sidenav a:hover {
+            color: #FFFF00;
+        }
+        
+        .dropdown-btn:hover {
+            color: #FFFF00;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 6vw;
+            font-size: 4vw;
+            margin-left: 13vw;
+        }
+        /*  #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }*/
+        /*.active {
+        background-color: green;
+        color: white;
+      }
+      */
+        
+        .dropdown-container {
+            display: none;
+            background-color: #fffff;
+            padding-left: 2vw;
+        }
+        /* Optional: Style the caret down icon */
+        
+        .fa-caret-down {
+            float: right;
+            padding-right: 2vw;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        hr {
+            border: 1px solid#34a89e;
+        }
+        
+        iframe {
+            float: right;
+            height: 50%;
+            width: 50%;
+        }
+        
+        .btn-primary {
+            float: right;
+        }
+        
+        header>h5 {
+            padding: 2px;
+            text-decoration: underline;
+            text-decoration-color: #34a89e;
+            font-size: 35px;
+        }
+        
+        div>details>summary {
+            width: 75px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+        }
+        
+        .p {
+            width: 130px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+            float: right;
+        }
+        
+        footer {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!--sidenav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
+      >
+      <a href="index.html">Home&nbsp;&nbsp;</a>
+
+        <button class="dropdown-btn">
+        Meal&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-container">
+            <a href="BengaliVegetarianRecipes.html"><small>Bengali Vegetarian Recipe</small></a>
+            <a href="BengaliNon-VegetarianRecipes.html"><small>Bengali Non-Vegetarian Recipe</small></a>
+            <button class="dropdown-btn">
+             Chinese Recipe&nbsp;&nbsp;
+              <i class="fa fa-caret-down"></i>
+            </button>
+
+            <div class="dropdown-container">
+                <a href="#rice"><small>Chinese Fried Rice</small></a>
+                <a href="#vegetable"><small>Chinese Vegetable</small></a>
+                <a href="#muncho"><small>Chicken Manchurian</small></a>
+
+
+            </div>
+
+            <a href="IndonesianRecipe.html"><small>Indonesian Recipe</small></a>
+        </div>
+        <a href="snacks.html">Snacks</a>
+        <a href="Dessert.html">Dessert</a>
+        <a href="drinks.html">Drinks</a>
+    </div>
+    <div id="main">
+        <span id="side-nav-open" style="font-size: 3vw; cursor: pointer;background-color: white;color:black;position:fixed;width:100%;top:0" onclick="openNav()">&#9776;<strong class="font-weight-bold" >Culinary & Cuisine</strong> </span
+      >
+      <script>
+        function openNav() {
+          document.getElementById("side-nav-open").style.display = "none";
+          document.getElementById("mySidenav").style.width = "25%";
+          document.getElementById("main").style.marginLeft = "25%";
+        }
+        function closeNav() {
+          document.getElementById("side-nav-open").style.display = "block";
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function () {
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script><!--Ending Sidenav-->
+      <br>
+      <br>
+      <br>
+      <br>
+<!--alert and marquee-->
+       <div class="container">
+        <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> Recipe details are directly from our kitchen or from our Moms&apos; recipe notes. 
+            Cooking videos provided here are from internet. That&apos;s why, they can vary a little bit. 
+            We apologize! You can try any of them or customize your dish in your own way. Good luck!!
+          </div>
+     <marquee class="display-2 font-weight-bold">Chinese Recipes!!!</marquee>
+     </div>
+  <div id="rice">
+     <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/chinese fried rice.jpg" class="img-thumbnail" style="width:50%;height:30%"/>
+     </div>
+     <hr>
+
+    
+
+
+
+
+<!--RECIPE-->
+<br>
+     <div class="container">
+      <details><summary>About</summary>A complete dish with rice,vegetables and egg!!</details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Chinese Fried Rice </strong></h5></header>
+      <br>
+      <ul>
+      <li>	3 cup cooked  rice(for exact Bangladeshi style use kalijeera or chinigura)</li>
+        <li>3 tablespoon oil</li>
+        <li>1 tablespoon butter/ ghee</li>
+        <li>2 cup your choice vegetables (carrot, peas, beans, cauliflower, tomato, cabbage, capsicum, bay corn etc.)</li>
+        <li>	3-4 eggs (large)</li>
+        <li>1/3 cup onion sliced</li>
+        <li>	1/2 cup spring onion chopped</li>
+        <li>	2-3 green chillies chopped</li>
+        <li>	1/2 teaspoon ground pepper</li>
+        <li>	2 tablespoon soy sauce</li>
+        <li>	1 tablespoon tomato sauce</li>
+        <li>	1/2 tablespoon sugar or to taste</li>
+        <li>	1/4 teaspoon tasting salt to taste(optional)</li>
+        <li>Salt to taste</li>
+       
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing:</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/GfyJS-flQQo"></iframe></details>
+        </div>
+     
+      <strong style="font-size:20px"> Step 1:</strong>Cut vegetables into your desire size sliced or diced.
+      	Beat eggs with salt; Add 1 tablespoon oil in pan, add eggs in pan and scramble it (or you can fry eggs and cut into pieces late but don’t make it hard, softer test better).
+      	Remove the eggs from pan and same pan add rest of oil.
+      <br>
+      <strong style="font-size:20px">Step 2:</strong>	When oil is ready, add vegetables and pinch of salt and fry 1-2 minutes. Stir it.
+      	Add onion, green chillies and after 1 minute add rice.
+      	Stir it and add one by one soy sauce, pepper, salt, tomato sauce, fried eggs, spring onion sugar and tasting salt. Stir well.
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>	When all ingredients mix well, add butter / ghee and turn off heat.
+      	Enjoy Bangladeshi Chinese Style Egg Fried Rice.
+      <br>
+      
+
+
+     
+      <br>
+      <hr>
+      <br>
+    </div>
+    <div id="vegetable">
+    <div class="img-container" style="text-align:center;">
+       <img src="imagereciepe/chinese vegetable.jpg" class="img-thumbnail" style="width:40%;height:30%"/>
+    </div>
+    <hr>
+
+   
+
+
+
+
+<!--RECIPE-->
+<br>
+    <div class="container">
+     <details><summary>About</summary>Vegetables in a soupy way!!</details>
+     <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+       <br><h5><strong>For Chinese Vegetable </strong></h5></header>
+     <br>
+     <ul>
+     <li>	Boneless Chicken: 1 cup</li>
+     <li> Black Pepper: 1/2 tsp</li>
+      <li>Soy Sauce 1tsp</li>
+      <li>Lime Juice 1 tsp</li>
+      <li>Carrot, Green Beans, Cauliflower, Zucchini, Broccoli, Yellow and Red Bell Pepper 1/2 cup </li>
+      <li>Garlic 1 tsp</li>
+     <li> Ginger 1 tsp</li>
+      <li>Chicken Stock 1/2 + 1/2 cup </li>
+      <li>Onion 1/4 cup</li>
+     <li> Green Chilli 4 pcs</li>
+      <li>Light Soy Sauce 1tsp</li>
+      <li>Fish Sauce 1 tsp</li>
+      <li>Corn Starch 1 tbsp</li>
+      
+      
+     </ul>
+     <br>
+     <header><h1><strong>D</strong><small>irection</small></h1><hr>
+       <br><h5><strong>Processing:</strong></h5></header>
+     <p>
+       <div class="container">
+         <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/k3_rRmeDJW0"></iframe></details>
+      
+    
+     <strong style="font-size:20px"> Step 1:</strong>Mix chicken, soy sauce, salt, and black pepper in a bowl and marinate for 1 hr.Half boil broccoli, carrot,
+      zucchini, green beans , cauliflower for 2 min.
+     <br>
+     <strong style="font-size:20px">Step 2:</strong>Heat 1 tablespoon vegetable oil in a large skillet or wok over medium-high heat; Add ginger ,garlic and chicken cook and stir chicken until meat is no longer pink in the center, add half cup of chicken stock to cook about 5-10 minutes. 
+     Transfer chicken and sauce to a bowl and wipe skillet clean.
+     <br>
+     <strong style="font-size:20px">Step 3:</strong>	Heat remaining 1 tablespoon vegetable oil over medium-high heat; . Stir in onion , green chilli , vegetables; continue to cook add fish oil ,soy sauce and the chicken. Pour remaining chicken stock and 1 tbsp corn starch .
+     <br>Enjoy the deliciousness! 
+     
+     <br>
+     
+
+</p>
+    
+     <br>
+     <hr>
+     <br>
+    </div> 
+    <div id="muncho">
+     <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/manchurian.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+   </div>
+   <hr>
+
+  
+
+
+
+
+<!--RECIPE-->
+<br>
+  
+    <details><summary>About</summary>A saucy curry with crispy chicken!</details>
+    <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+      <br><h5><strong>For Chicken Manchurian </strong></h5></header>
+    <br>
+    <ul>
+    <li>Chicken breast - 500 gm</li>
+      <li>	Egg - 1 small</li>
+    <li>	Salt - to taste</li>
+      <li>White pepper powder - 1 teaspoon</li>
+      <li>Cornstarch - 1/4 cup</li>
+      <li>All purpose flour - 1/2 cup
+        </li>
+     
+    </ul>
+    <br>
+    <br><h5><strong>For Sauce </strong></h5></header><br>
+<ul><li>Oil - 2 tablespoon</li>
+  <li>	Cashews - 2 tablespoon</li>
+  <li>Ginger - 1 tablespoon finely chopped</li>
+  <li>Garlic - 1 tablespoon finely chopped</li>
+  <li>Onion - 1 cup cut into cube</li>
+  <li>Soy sauce - 2 tablespoon</li>
+  <li>Tomato puree - 1 cup</li>
+  <li>Tomato sauce - 2 tablespoon</li>
+  <li>Cornstarch - 3 tablespoon</li>
+  <li>Red Chili Flakes - 1 tablespoon</li>
+  <li>Green Chilies - 2 cut into julianno</li>
+  <li>	Capsicum - 1 cut into cube</li>
+  <li>Vinegar - 4 tablespoon
+  
+
+</li></ul>
+    <header><h1><strong>D</strong><small>irection</small></h1><hr>
+      <br><h5><strong>Processing:</strong></h5></header>
+    <p>
+      
+        <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/j4FBJwxnxHg"></iframe></details>
+     
+   
+    <strong style="font-size:20px"> Step 1:</strong>Cut chicken breast in to cubes, mix it in egg ,pepper and salt.Keep aside.
+    	In a a bowl mix cornstarch and flour together.Coat the chicken cube with flour mixture one by one.
+    	Heat oil in a deep fry pan and fry the coated chicken cube until light brown in color.Keep on a kitchen tissue.
+    
+    <br>
+    <strong style="font-size:20px">Step 2:</strong>Pour two tablespoon oil in a another pan,add cashews and fry until golden in color. Add onion,ginger and garlic to saute.
+    Add tomato puree and simmer for a while then add marinated chicken and cook it well then add capsicum, vinegar, soya sauce, red chilies,green chilies, salt, tomato sauce and cashews, mix it well and cook for 2 mins.
+    
+    <br>
+    <strong style="font-size:20px">Step 3:</strong>		Dissolve three tablespoon corn flour in water and add into sauce to make a thick gravy. Keep the flame on high.
+    	Check the consistency of gravy; now pour the gravy in serving dish and serve it with fried rice.
+    
+    <br>
+    
+
+    </p>
+   
+    <br>
+    <hr>
+    <br>
+    <footer>
+
+      <div class="container">
+          <small style="font-size:1.5vw;">&copy;This website is created by</small> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fzannatul-fardaush-tripty-8481241b2%3Ffbclid%3DIwAR1TQtJ4nEucIXE09jH-pxH_LYXGmaQH8QX-vE0oo3OoQV5lG6Vt6KJzr_U&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Zannatul Fardaush </a>            <small>&</small><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fnidita-roy-0537b31b0%3Ffbclid%3DIwAR2HkdKC06u1jO3yEb0IUqraysJd5p4F-vu-EnYnyxnNxQXJdIGlAJvyBJM&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA"> Nidita Roy</i></b></a>
+      </div>
+  </footer>
+    </div>
+     </div>
+    </body>
+</html>

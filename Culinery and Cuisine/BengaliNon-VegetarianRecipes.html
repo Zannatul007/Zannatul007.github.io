@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4%;
+            background-color: #259285d1;
+            color: white;
+            text-align: center;
+            font-style: normal;
+            font-weight: 100;
+            font-size: 1.5rem;
+        }
+        
+        footer>div>a {
+            color: black;
+            font-size: 1.25rem;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1c9e92e3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 5vw;
+        }
+        
+        .sidenav a,
+        .dropdown-btn {
+            padding: 1vw 2vw .5vw 5vw;
+            text-decoration: none;
+            font-size: 1.9vw;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            background-color: #34a89e;
+            cursor: pointer;
+            border: none;
+            opacity: .80
+        }
+        
+        .carousel-item {
+            display: none;
+            position: relative;
+            transition(.1s ease-in-out left);
+        }
+        
+        .sidenav a:hover {
+            color: #FFFF00;
+        }
+        
+        .dropdown-btn:hover {
+            color: #FFFF00;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 6vw;
+            font-size: 4vw;
+            margin-left: 13vw;
+        }
+        /*  #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }*/
+        /*.active {
+        background-color: green;
+        color: white;
+      }
+      */
+        
+        .dropdown-container {
+            display: none;
+            background-color: #fffff;
+            padding-left: 2vw;
+        }
+        /* Optional: Style the caret down icon */
+        
+        .fa-caret-down {
+            float: right;
+            padding-right: 2vw;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        hr {
+            border: 1px solid#34a89e;
+        }
+        
+        iframe {
+            float: right;
+            height: 50%;
+            width: 50%;
+        }
+        
+        .btn-primary {
+            float: right;
+        }
+        
+        header>h5 {
+            padding: 2px;
+            text-decoration: underline;
+            text-decoration-color: #34a89e;
+            font-size: 35px;
+        }
+        
+        div>details>summary {
+            width: 75px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+        }
+        
+        .p {
+            width: 130px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+            float: right;
+        }
+        
+        footer {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!--sidenav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
+      >
+      <a href="index.html">Home&nbsp;&nbsp;</a>
+
+        <button class="dropdown-btn">
+        Meal&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-container">
+            <a href="BengaliVegetarianRecipes.html"><small>Bengali Vegetarian Recipe</small></a>
+            <button class="dropdown-btn">
+              Bengali Non-Vegetarian Recipe&nbsp;&nbsp;
+              <i class="fa fa-caret-down"></i>
+            </button>
+
+            <div class="dropdown-container">
+                <a href="#birani"><small>Chicken Biriyani</small></a>
+                <a href="#mutton"><small>Mutton Kosha(Slow-cooked caramelized mutton)</small></a>
+                <a href="#illish"><small>Sorshe Illish(Steamed Hilsha with Mustard)</small></a>
+                <a href="#chingri"><small>Chingri Macher Malaikari(Prawn with Coconut milk)
+                </small></a>
+                <a href="#ghonto"><small> Muro-ghonto(Fish head Curry)</small></a>
+                <a href="#kaliya"><small>Macher kalia(Traditional Bengali Fish Curry)</small></a>
+
+            </div>
+
+
+            <a href="ChineseRecipe.html"><small>Chinese Recipe</small></a>
+            <a href="IndonesianRecipe.html"><small>Indonesian Recipe</small></a>
+        </div>
+        <a href="snacks.html">Snacks</a>
+        <a href="Dessert.html">Dessert</a>
+        <a href="drinks.html">Drinks</a>
+    </div>
+    <div id="main">
+        <span id="side-nav-open" style="font-size: 3vw; cursor: pointer;background-color: white;color:black;position:fixed;top:0;width:100%" onclick="openNav()">&#9776;<strong class="font-weight-bold" >Culinary & Cuisine</strong> </span
+      >
+      <script>
+        function openNav() {
+          document.getElementById("side-nav-open").style.display = "none";
+          document.getElementById("mySidenav").style.width = "25%";
+          document.getElementById("main").style.marginLeft = "25%";
+        }
+        function closeNav() {
+          document.getElementById("side-nav-open").style.display = "block";
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function () {
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script><!--Ending Sidenav-->
+      
+<!--alert and marquee-->
+<br>
+<br>
+<br>
+<br>
+
+       <div class="container">
+        <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> Recipe details are directly from our kitchen or from our Moms&apos; recipe notes. 
+            Cooking videos provided here are from internet. That&apos;s why, they can vary a little bit. 
+            We apologize! You can try any of them or customize your dish in your own way. Good luck!!
+          </div>
+     <marquee class="display-2 font-weight-bold">Bengali Non-Vegetarian Recipe!!!</marquee>
+     </div>
+     <div id="birani">
+     <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/biriyani.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+     </div>
+     <hr>
+
+     
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+
+     <div class="container">
+      <details><summary>About</summary>Biryani  is a mixed rice dish with its origins among the Muslims
+         of the Indian subcontinent. It can be compared to mixing a curry, later combining it with semi-cooked 
+         rice separately.
+          This dish is especially popular throughout the Indian subcontinent, as well as among its diaspora. It is also prepared in
+           other regions such as Iraqi Kurdistan.It is made with Indian spices, rice, meat (chicken,goat,lamb, prawn, or fish), or eggs. The word &aposbiryani&apos; is derived from a Persian word, birian, which means fried before cooking. 
+        It is one of the most popular dishes, which has acquired a niche for itself in South Asian cuisine.</details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Chicken Biriyani(5 servings) </strong></h5></header>
+      <br>
+      <ul>
+      <li>	1 cup boiled basmati rice</li>
+        <li>1/2 teaspoon mint leaves</li>
+        <li>salt as required</li>
+        <li>	2 tablespoon refined oil</li>
+        <li>3 green cardamom</li>
+        <li>2 clove</li>
+        <li>2 onion</li>
+        <li>1 teaspoon turmeric</li>
+        <li>1 tablespoon garlic paste</li>
+        <li>1 cup hung curd</li>
+        <li>2 tablespoon coriander leaves</li>
+        <li>water as required</li>
+        <li>1 tablespoon ghee</li>
+        <li>600 gm chicken</li>
+        <li>1 tablespoon garam masala powder</li>
+        <li>1 dash saffron</li>
+        <li>1 tablespoon bay leaf</li>
+        <li>1 black cardamom</li>
+        <li>1 teaspoon cumin seeds</li>
+        <li>4 green chillies</li>
+        <li>	1 tablespoon ginger paste</li>
+        <li>	1 teaspoon red chilli powder</li>
+        <li>1/2 tablespoon ginger</li>
+        <li>2 drops kewra(is an essential oil distilled from the male flower of the fragrant screwpine)</li>
+        <li>	1 tablespoon rose water</li>
+        <li>Garam Masala(Cinnamon,mace,peppercons,coriander seeds,cumin seeds and cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)
+        </li>
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/95BCU1n268w"></iframe></details>
+        </div>
+     
+      <strong style="font-size:20px"> Step 1:</strong>To make this delightful biryani, soak saffron in water to prepare saffron water.
+       Next, mix kewra drops in water and mix well to make kewra water.<br>
+      <strong style="font-size:20px">Step 2:</strong>In the meanwhile, heat refined oil in a deep bottomed pan.
+       Once the oil is hot enough. Add cumin seeds, bay leaf, green cardamom, black cardamom, cloves in it, and saute for
+        about a minute. Then, add chopped onion in it and saute until pink. Now, add chicken into it with slit green chillies, turmeric, salt to taste, ginger garlic paste, red chilli powder, and 2 green chilli paste. Mix well all the spices and cook for 2-3 minutes. 
+      Then, add beaten curd into it<br>
+      <strong style="font-size:20px">Step 3:</strong>Turn the flame to medium again and add garam masala in it along with 
+      ginger julienned, coriander and mint leaves.
+       Add kewra water, rose water and saffron water in it. Cook till the chicken is tender.<br>
+      <strong style="font-size:20px">Step 4:</strong>Then add 1 cup cooked rice and spread evenly. Then add saffron water and pour ghee over it. 
+      Cook for 15-20 minutes with closed lid and garnish with 1 tbsp fried onions and coriander leaves. Serve hot<br>
+      <br>
+
+
+     
+      </p>
+      <br>
+      <hr>
+      <br>
+      <div id="mutton">
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/kosha mangsho.jpg" class="img-thumbnail" style="width:55%;height:50%"/>
+     </div>
+     <hr>
+
+     
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+
+     <div class="container">
+      <details><summary>About</summary>Mutton curry (also referred to as kosha mangsho, lamb curry,[or goat curry, Indonesian: kari kambing or gulai kambing) is an Indian curry dish that is prepared from mutton (or sometimes goat meat) and vegetables.] Although very popular in northern India, mainly in Bengal region, the dish is found in different variations across all states, countries and regions of South Asia. It originated from Eastern India, inspired from its counterparts as Fish and Crab curry from Assam, Andhra Pradesh and Odisha. Railway mutton curry is a variation of the dish that originated during the British India.
+        Mutton curry was originally prepared heated by a fire[6] in a large pot. It may now be cooked using pressure cookers and slow cookers. Mutton curry may be served with rice or with Indian breads, such as naan or parotta.The dish has been served with raji, a cereal.
+        </details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Mutton Kosha(Slow-cooked caramelized mutton)</strong></h5></header>
+      <br>
+      <ul>
+      <li>1 kg mutton</li>
+      </ul>
+      <br>
+      <br><h5><strong>For THE MARINADE</strong></h5></header>
+      <ul>
+       <li>100 g onions</li>
+        <li>5 g garlic</li>
+        <li>100 g yoghurt</li>
+         <li>15 g salt</li>
+        <li>5 g turmeric powder</li>
+        <li>3 g shahi garam masala powder</li>
+
+      </ul>
+      <br><h5><strong>For THE CURRY</strong></h5></header>
+      <ul>
+        <li>20 g mustard oil</li>
+         <li> 4 cm cinnamon</li>
+         <li>10 pcs green cardamom</li>
+         <li> 1 pc black cardamom</li>
+         <li> 10 pcs cloves</li>
+          <li>4 pcs dried red chillies</li>
+          <li>6 pcs bay leaves</li>
+         <li> 400 g onions (sliced)</li>
+         <li> 40 g ginger paste</li>
+         <li> 10 g garlic</li>
+          <li>20 g green chillies (plus 4 extra pieces for garnish)</li>
+         <li> 3 g coriander powder</li>
+         <li> 3 g cumin powder</li>
+         <li> 3 g kashmiri red chilli powder</li>
+         <li> 150–200 g yoghurt (based on how tart you want your curry)</li>
+         <li> 8 g salt</li>
+        <li> 10 g sugar</li>
+         <li> ~1 litre hot water</li>
+         <li> 5 g ghee</li>
+        
+      </ul>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/CUCtn02Juk0"></iframe></details>
+        </div>
+     
+      <strong style="font-size:20px"> Step 1:</strong>For the marinade, add 100 g quartered onions, 5 g roughly chopped garlic, 100 g yoghurt,
+       15 g salt, turmeric, and shahi garam masala to a grinder jar. Blitz to form a smooth paste.<br>
+      <strong style="font-size:20px">Step 2:</strong>Coat all the mutton pieces with the marinade, making sure to get into all the
+       nooks and crannies of the meat. 
+      Cover and allow the mutton to marinate in the refrigerator for about 8 hours.<br>
+      <strong style="font-size:20px">Step 3:</strong>Coming to the prep: Cut 400 g onions into thin slices. For this recipe,
+       sliced onions define the texture of the curry. Diced, chopped, or puréed onions won’t give you the same result. Using a mortar
+        and pestle, crush together 10 g garlic and 20 g green chillies to a paste. 
+      For ease while stirring later on, you may also cut all the bay leaves in 3-cm sections using a pair of scissors.<br>
+      <strong style="font-size:20px"> Step 4:</strong>Heat a large kadai and add mustard oil to it. Once the oil has started to 
+      smoke lightly and changed colour to a pale yellow, add the dried red chillies, 
+      bay leaves, cinnamon, green cardamom, black cardamom, and cloves.<br>
+      <strong style="font-size:20px">Step 5:</strong>Add the onions and fry them on medium flame for about 15 minutes until they are light 
+      brown in colour. Then, add the ginger paste, and garlic and green chilli paste, and fry for another 5 minutes. Keep the
+       flame medium to low, depending on whether your onions are sticking to the pan or not, and stir often. We want to fry the spices as well as develop colour on the onions. Next, add the dry spices (coriander, cumin, and red chilli) mixed with 100 g of water. Continue frying the onions along with the spices for about 15 more minutes. By now (it’s been 30 minutes since we started), 
+      your onions should have taken on a reddish-brown colour and the spices started releasing their oils.<br>
+      <strong style="font-size:20px">Step 6:</strong>Add the marinated mutton to the pan. The mutton has been in the 
+      fridge, so it is cold. Raise the heat and mix everything thoroughly. Fry the mutton, stirring frequently to check that it’s not sticking to the pan, for 15 minutes on high heat. Beat 150–200 g yoghurt until it is lump-free and add it to the pan. Also add 8 g salt and 10 g sugar at this point. Mix everything and keep frying. Once the moisture (from the cold mutton and yoghurt) starts to dry out, drop the heat to medium.
+      There’s not much to it now. On medium heat, for the next 75 to 90 minutes, repeat the following steps:–Add a 
+      splash of hot water to the pan (~30 ml at a time)
+     <br> –Stir it in<br>
+      –Cover the pan and cook for a minute<br>
+      –Uncover and stir everything thoroughly<br>
+      
+      
+      <br>
+      <strong style="font-size:20px"> Step 7:</strong>What we’re doing here is a kind of controlled browning. 
+      Stir, scrape, and incorporate any of the browned bits that may have stuck to the bottom of the pan, as
+       that is what will allow the mutton to develop a rich colour. However, be alert so that the gravy doesn’t burn and turn bitter. 
+      Keep adding water a little at a time and cooking the meat in the gravy.<br>
+      <strong style="font-size:20px">Step 8:</strong>Once you are happy with the colour, add as much water as you’d 
+      like for the gravy/curry. Also add about 4 slit green chillies for flavour. 
+      Cover and cook until the mutton is tender. You should be able to tear it apart with two fingers.<br>
+      <strong style="font-size:20px">Step 9:</strong>Turn off the heat and top off with a little bit of ghee.
+       Cover and let it rest for about 2 minutes before serving.<br>
+     
+      <br>
+
+
+     
+      </p>
+      <br>
+      <hr>
+      <br>
+      <div id="illish">
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/illish bhapa.jpg" class="img-thumbnail" style="width:50%;height:40%"/>
+     </div>
+     <hr>
+
+     
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+
+     <div class="container">
+      <details><summary>About</summary>Shorshe ilish is a Bengali dish, native to the Bengal region of the Indian subcontinent, made from hilsa or Tenualosa ilisha, a type of herring, cooked in mustard gravy The dish is popular among the people in the Indian states of West Bengal, 
+        Tripura and Assam’s Barak valley, and the nation of Bangladesh </details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Bhapa Sorshe Illish(Steamed Hilsha with Mustard) </strong></h5></header>
+      <br>
+      <ul>
+      <li>250 g or 4 pcs hilsa fish, 3-cm-thick pieces</li>
+        <li>40 g Mustard seeds (brown + yellow mixed, soaked for 2 hours)</li>
+        <li>8 pcs Green chillies</li>
+        <li>22 g Salt</li>
+        <li>	1/4 tsp Sugar</li>
+        <li>	1/2 tsp Turmeric powder</li>
+        <li>20 g Mustard oil</li>
+        <li>2 tsp poppy seed</li>
+        </li>
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/ABcJVlglEXo"></iframe></details>
+        </div>
+     
+      <strong style="font-size:20px"> Step 1:</strong>Soak mustard seeds in water for 2 hours.
+      	Clean theHhilsha and cut it in 3-cm thick slices. Ilish bhaape is best made with thick slices of fish. Fish without roe (eggs) is fattier and, therefore, ideal for this recipe. If your fish has eggs, remove them, as they may not cook fully when steamed. You can add them to your bhaja (fry) or jhol (curry).
+      <br>
+      <strong style="font-size:20px">Step 2:</strong>Drain the mustard seeds of the water they’ve been soaking in and add them to a grinder jar. Add 4 green chillies, roughly chopped, along with the salt and 100g water. Grinding green chillies with the mustard ensures that it doesn’t turn bitter.
+      Grind these to a fine paste. Take your time with this process. Scrape down the sides of the jar and grind as many times as it takes to form the smoothest possible paste. The finer the grind, the better the flavours.
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>	Now, add poppy seed. Grind once again until the paste becomes smooth
+      Transfer this paste to a steel tiffin box. Add  sugar, turmeric, and mustard oil. Mix until the oil is fully incorporated.
+      Now add the fish, one piece at a time, and coat it with the spices. Use your hands to make sure every part of the fish, including its cavities, is well coated.
+      Slit four more green chillies and place them on the ilish pieces.
+      Fasten the lid of your tiffin box (you could also seal the top with thick aluminium foil) and set the fish aside to marinate for 15 minutes.
+      <br>
+      <strong style="font-size:20px"> Step 4:</strong>	Heat up your pan and place a stand at the bottom. Pour hot water, making sure it doesn’t reach up to more than half the height of your tiffin box, or there’s a danger of water seeping in. Once the water has come to a boil, place the tiffin on the stand. Cover the pan and steam on medium heat for 15 minutes.
+      	Remove from the pan and allow it to rest for another 5 minutes before serving.
+      
+      <br>
+      <br>
+
+
+     
+      </p>
+      <br>
+      <hr>
+      <br>
+      <div id="chingri">
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/prawn malaikari.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+     </div>
+     <hr>
+
+     
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+
+     <div class="container">
+      <details><summary>About</summary>“Malai” actually means “cream”, but, this dish does not contain any cream rather than the creamy coconut milk. It is said that this dish has its origin in Malaysia and the term “malai” is actually “malay” of Malaysia. This is a traditional dish and often cooked in Bengali weddings and festivals. Though this curry can be prepared with any type of prawn,
+         but, the most preferred are large and medium sized prawn. </details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Chingri Macher Malaikari(Prawn with Coconut milk)</strong></h5></header>
+      <br>
+      <ul>
+      <li>Prawns ~ 1lb of the larger size, get fresh ones, see above why I got some with heads on</li>
+       <li> Ginge paste r ~ 1 tsp</li>
+       <li> Cumin paste r ~ 1 tsp</li>
+        
+       <li> Green Chillies ~ 6 </li>
+      <li> Coconut Milk ~ 1 can</li>
+        
+        <li> Bay Leaves ~ 4 small</li>
+      <li> Cardamom ~ 4</li>
+       <li> Soyabean oil</li>
+        <li>Cinnamon ~ 2 smallish sticks as in picture</li>
+        
+      <li> Red Chilli Powder</li>
+      <li>Turmeric Powder</li>
+       <li> Salt</li>
+      <li> Little Sugar
+        </li>
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Cleaning Prawn</strong></h5></header>
+        <strong style="font-size:20px"> Step 1:</strong>If you want to though, go through the following steps to clean fresh prawn :-
+        Remove the hard shell, do not remove the tail, leave it on
+        De-vein the prawn, slit the back a little and take out the black thread thingy
+        For shrimps with heads, carefully remove only the front portion of the head the eyes etc., do not remove the entire head, you want to keep the liquidy thing inside the head.
+        
+        <br>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/f4uIoGNFX2k"></iframe></details>
+        </div>
+        <br><h5><strong>Processing</strong></h5></header>
+      <strong style="font-size:20px"> Step 1:</strong>Fry prawns a little bit with a pich of salt and turmeric , separate them in a bowl.<br>
+      <strong style="font-size:20px">Step 2:</strong>Then in the same oil give the dry spices, heat them and give the  ginger 
+      and cumin paste, red chilli powder, salt and sugar to taste, saute them until they release oil, then give that coconut milk, boil , give the prawns , wait for 5-6 minutes, give green chilli, stir, add ghee at last.
+      And it is ready to serve.
+      <br>
+      
+      <br>
+
+
+     
+      </p>
+      <br>
+      <hr>
+      <br>
+      <div id="ghonto">
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/muro ghonto.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+     </div>
+     <hr>
+
+     
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+
+     <div class="container">
+      <details><summary>About</summary>For the uninitiated, the Muri Ghanto may well appear like a distant cousin of the Spanish Paella, comforting, exotic and excitingly addictive even with its rustic look and minus the rabbit. Muri Ghonto, unlike the Paella, is made with fish head (and tail) and rice. Of course the later versions replaced the rice with mixed vegetables, lentils and greens, but the authentic Muri Ghanto, which becomes Muri Ghonto in Bengal and Assam, till date is made by smashing the head and the tail (the rejects of the rich back in time) that is cooked with local rice variety.
+         And it is a popular breakfast dish in the interior parts of Odisha and Bengal.</details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Muro-ghonto(Fish head Curry) </strong></h5></header>
+      <br>
+      <ul>
+      <li>
+        500 gm fish-head</li>
+<li>1 teaspoon ginger paste</li>
+<li>1 tsp cumin paste</li>
+<li>	1/2  teaspoon garam masala powder(Cinnamon,mace,peppercons,coriander seeds,cumin seeds and cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)</li>
+
+<li>salt as required</li>
+<li>water as required</li>
+<li> 1/2 cup Chinigura rice</li>
+<li>1 teaspoon Fennel seed</li>
+<li>2 bay leaf</li>
+<li>	4 cardamom</li>
+<li>1 small potato</li>
+<li>Cinnamon(1 stick)</li>
+<li>Dry & green chill</li>
+<li>Sugra  as required</li>
+<li>1 tsp coriander seed powder</li>
+<li>Ghee(clarified butter)</li>
+<li>1 teaspoon turmeric</li>
+
+      
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/qK1OeJLZYQw"></iframe></details>
+        </div>
+     
+      <strong style="font-size:20px"> Step 1: 
+        </strong>Fry  fish head and separate it,
+        fry  cube cut potatoes head and separate it,
+        fry  chinigura rice head and separate it,<br>
+      <strong style="font-size:20px">Step 2:</strong>Then in the same oil give dry chilli and whole dry spices, fry ,
+       then give spice pastes and powder spices , saute until it release oil,then give some hot water in that pan, boil , 
+      give the previously fried elements , let the potatoes be cooked, <br>
+      <strong style="font-size:20px">Step 3:</strong>At last mix garam masala and ghee, wait for 2 minutes then turn off the gas.<br>
+      <br>
+
+
+     
+      </p>
+      <br>
+      <hr>
+      <br>
+      <div id="kaliya">
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/kaliya.jpg" class="img-thumbnail" style="width:70%;height:70%"/>
+     </div>
+     <hr>
+
+     
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+
+     <div class="container">
+      <details><summary>About</summary>‘kalia’ has evolved from the Persian ‘qaliya’. Both qaliya and qorma have come from Persia. While qaliya has a thin consistency and is an onion based gravy, qorma is typically dairy based. But how did it come to Bengal? Was it brought by the Mughals? Tanushree goes on to take reference of noted historian and author of several food books, Salma Hussain. Salma Hussain says that we cannot overlook the fact that Mughals had a decent understanding of the importance of seasonal and local ingredients. Today’s kundan kalia or a naan kalia from Aurangabad could also have evolved from qalia. Bengal has had a strong muslim influence and qalia, probably came from the sea route, through the traders and then from Dhaka muslim culture. Ultimately, over a long period of time, it changed form and today’s Bengali Macher Kalia is nowhere close to what a ‘qalia’ was.
+         Our macher kalia is quite a robust onion and yogurt based gravy with a rich red colour</details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Macher kalia(Traditional Bengali Fish Curry) </strong></h5></header>
+      <br>
+      <ul>
+      <li>5 pieces Rohu/Catla fish</li>
+      <li>1 teaspoon turmeric powder</li>
+      <li>1 teaspoon red chilli powder</li>
+        <li>2 tablespoon curd</li>
+        <li>1 tabiespoon ginger  paste</li>
+        <li>3 green chillies</li>
+        <li>	1 teaspoon garam masala powder(Cinnamon,mace,peppercons,coriander seeds,cumin seeds and
+           cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)</li>
+        	
+        <li>1 dry red chilli</li>
+        <li>	2 pod green cardamom</li>
+        <li>1 small stick cinnamon</li>
+        
+        
+        <li>To taste salt and sugar</li>
+        <li>As needed oil</li>
+        <li>	As needed water</li>
+        <li>Raisin (9/10)</li>
+        <li>2 bay leaf</li>
+        <li>Ginger paste 1 tsp</li>
+        <li>Cumin paste 1 tsp</li>
+        <li>	Ghee (clarified butter)</li>
+        </li>
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/kzVcz8X_waw"></iframe></details>
+        </div>
+     
+      <strong style="font-size:20px"> Step 1:</strong>Fry the fishes. Give the whole dry spices (without garam masala)in tha pan, fry, 
+      then give ginger cumin paste and powdered spices. Saute until it release water. <br>
+      <strong style="font-size:20px">Step 2:</strong>Then give raisin, stir, and give a splash of hot water.
+       Give fishes in the boiling water, cook for 5-10 minutes<br>
+      <strong style="font-size:20px">Step 3:</strong>Adjust sugar and salt.
+       Give ghee and garam masala. Cook for 2-3 minutes. And it’s ready to eat.<br>
+      <br>
+
+
+     
+      </p>
+      <br>
+      <hr>
+      <br>
+      
+     
+      
+     </div>
+
+      <footer>
+
+        <div class="container">
+            <small style="font-size:1.5vw;">&copy;This website is created by</small> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fzannatul-fardaush-tripty-8481241b2%3Ffbclid%3DIwAR1TQtJ4nEucIXE09jH-pxH_LYXGmaQH8QX-vE0oo3OoQV5lG6Vt6KJzr_U&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Zannatul Fardaush </a>            <small>&</small><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fnidita-roy-0537b31b0%3Ffbclid%3DIwAR2HkdKC06u1jO3yEb0IUqraysJd5p4F-vu-EnYnyxnNxQXJdIGlAJvyBJM&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA"> Nidita Roy</i></b></a>
+        </div>
+    </footer>
+
+    
+     
+     </div>
+    </body>
+    </html>
