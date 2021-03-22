@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4%;
+            background-color: #259285d1;
+            color: white;
+            text-align: center;
+            font-family: Roboto;
+            font-weight: 100;
+            font-size: 1;
+        }
+        
+        footer>div>a {
+            color: black;
+            font-size: 1.25;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1c9e92e3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 5vw;
+        }
+        
+        .sidenav a,
+        .dropdown-btn {
+            padding: 1vw 2vw .5vw 5vw;
+            text-decoration: none;
+            font-size: 1.9vw;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            background-color: #34a89e;
+            cursor: pointer;
+            border: none;
+            opacity: .80
+        }
+        
+        .carousel-item {
+            display: none;
+            position: relative;
+            transition(.1s ease-in-out left);
+        }
+        
+        .sidenav a:hover {
+            color: #FFFF00;
+        }
+        
+        .dropdown-btn:hover {
+            color: #FFFF00;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 6vw;
+            font-size: 4vw;
+            margin-left: 13vw;
+        }
+        /*  #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }*/
+        /*.active {
+        background-color: green;
+        color: white;
+      }
+      */
+        
+        .dropdown-container {
+            display: none;
+            background-color: #fffff;
+            padding-left: 2vw;
+        }
+        /* Optional: Style the caret down icon */
+        
+        .fa-caret-down {
+            float: right;
+            padding-right: 2vw;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        hr {
+            border: 1px solid#34a89e;
+        }
+        
+        iframe {
+            float: right;
+            height: 50%;
+            width: 50%;
+        }
+        
+        .btn-primary {
+            float: right;
+        }
+        
+        header>h5 {
+            padding: 2px;
+            text-decoration: underline;
+            text-decoration-color: #34a89e;
+            font-size: 35px;
+        }
+        
+        div>details>summary {
+            width: 75px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+        }
+        
+        .p {
+            width: 130px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+            float: right;
+        }
+        
+        footer {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!--sidenav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
+      >
+      <a href="index.html">Home&nbsp;&nbsp;</a>
+
+        <button class="dropdown-btn">
+        Meal&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-container">
+            <a href="BengaliVegetarianRecipes.html"><small>Bengali Vegetarian Recipe</small></a>
+            <a href="BengaliNon-VegetarianRecipes.html"><small>Bengali Non-Vegetarian Recipe</small></a>
+            <a href="ChineseRecipe.html"><small>Chinese Recipe</small></a>
+            <button class="dropdown-btn">
+               Indonesian Recipe&nbsp;&nbsp;
+                <i class="fa fa-caret-down"></i>
+              </button>
+
+            <div class="dropdown-container">
+                <a href="#nasi"><small>Nasi Goreng</small></a>
+                <a href="#fry"><small>Indonesian Style Whole Fried Fish Recipe</small></a>
+
+
+            </div>
+
+        </div>
+        <a href="snacks.html">Snacks</a>
+        <a href="Dessert.html">Dessert</a>
+        <a href="drinks.html">Drinks</a>
+    </div>
+    <div id="main">
+        <span id="side-nav-open" style="font-size: 3vw; cursor: pointer;background-color: white;color:black;position:fixed;width:100%;top:0" onclick="openNav()">&#9776;<strong class="font-weight-bold" >Culinary & Cuisine</strong> </span
+      >
+      <script>
+        function openNav() {
+          document.getElementById("side-nav-open").style.display = "none";
+          document.getElementById("mySidenav").style.width = "25%";
+          document.getElementById("main").style.marginLeft = "25%";
+        }
+        function closeNav() {
+          document.getElementById("side-nav-open").style.display = "block";
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function () {
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script><!--Ending Sidenav-->
+      <br>
+      <br>
+      <br>
+      <br>
+<!--alert and marquee-->
+       <div class="container">
+        <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> Recipe details are directly from our kitchen or from our Moms&apos; recipe notes. 
+            Cooking videos provided here are from internet. That&apos;s why, they can vary a little bit. 
+            We apologize! You can try any of them or customize your dish in your own way. Good luck!!
+          </div>
+     <marquee class="display-2 font-weight-bold">Indonesian Recipes!!!</marquee>
+     </div>
+  
+    <div id="nasi">
+     <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/Nasi.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+   </div>
+   <hr>
+
+  
+
+
+
+
+<!--RECIPE-->
+<br>
+  
+<div class="container">
+    <details><summary>About</summary>Nasi goreng has been called the national dish of Indonesia, though there are many other contenders. It can be enjoyed in simple versions from a tin plate at a roadside food stall, eaten on porcelain in restaurants,
+         or collected from the buffet tables of Jakarta dinner parties.</details>
+    <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+      <br><h5><strong>For  Nasi Goreng </strong></h5></header>
+    <br>
+    <ul>
+    <li>
+        
+200g jasmine rice</li>
+<li>2 tbsp neutral oil</li>
+<li>1 garlic clove, peeled and crushed</li>
+<li>2 eggs, beaten</li>
+<li>2 tbsp kecap manis</li>
+<li>2 tsp soy sauce</li>
+<li>4 spring onions</li>
+ <li>1 bird’s eye chilli, sliced, to serve</li>
+<li>For the paste</li>
+<li>50g shallots, peeled and roughly chopped</li>
+<li>1 garlic clove, peeled and roughly chopped</li>
+<li>2 tsp Indonesian shrimp paste (terasi)</li>
+<li>1 large medium red chilli, deseeded</li>
+<li>1 tbsp neutral oil</li>
+
+<li>Fried eggs</li>
+<li>Sliced cucumber or tomatoes</li>
+<li>Lightly blanched vegetables</li>
+<li>Cooked meat or seafood</li>
+<li>Crispy shallots</li>
+<li>Salted peanuts
+
+        </li>
+     
+    </ul>
+    <br>
+    
+    <header><h1><strong>D</strong><small>irection</small></h1><hr>
+      <br><h5><strong>Processing:</strong></h5></header>
+    <p>
+      
+        <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/UJUvr9XHHu8"></iframe></details>
+     
+   
+        <strong style="font-size:20px"> Step 1:</strong>Put the rice in a pan with 400ml boiling water. Stir once, bring to a simmer, then cover and turn the heat right down. Cook for 15 minutes, then take off the heat and leave on a damp tea towel or cloth for five minutes with the lid off. Fork through to fluff up, then spread on a baking tray and refrigerate, overnight if possible.
+        Put all the ingredients for the paste in a small blender or mortar and whizz or pound until fairly smooth.
+        
+        <br>
+        <strong style="font-size:20px">Step 2:</strong>Heat the oil in a wok over a high heat, then fry the garlic until golden, not brown, then pour in the eggs, leave to cook until half set, then break up. Carry on frying the egg until it’s just beginning to brown, then tip in the spice paste and cook for a minute or so.
+        Add the rice by hand, breaking up any clumps as you go, and fry until heated through, then stir in the kecap manis, soy sauce, spring onion and chilli.
+        
+        
+        <br>
+        <strong style="font-size:20px">Step 3:</strong>Fry, stirring, for another minute or so, then taste and season as necessary. Divide between plates and top with whatever you’ve chosen from the list above. Eat immediately.		
+        <br>
+        
+   
+    
+
+    </p>
+   
+    <br>
+    <hr>
+    <br>
+    </div>
+    <div id="fry">
+    <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/indonesia.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+     </div>
+     <hr>
+  
+    
+  
+  
+  
+  
+  <!--RECIPE-->
+  <br>
+  <div class="container">
+      <details><summary>About</summary>An Indonesian savory food.</details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Indonesian Style Whole Fried Fish Recipe</strong></h5></header>
+      <br>
+      <ul>
+      <li>
+          Tilapia(Oreochromis niloticus)</li>
+         <li> salt to taste</li>
+         <li> red chilli powder to taste</li>
+         <li> lemon 3 peices</li>
+        <li>  green chilli 7-10 peices
+
+          </li>
+          <li>ABC sauce</li>
+       
+      </ul>
+      <br>
+      
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing:</strong></h5></header>
+      <p>
+        
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/b8qddzdDw2U"></iframe></details>
+       
+     
+      <strong style="font-size:20px"> Step 1:</strong>Mix the fishes with  chili powder, and salt.Try to Marinate the Fishs minimum half hours 
+      In another bowl take flour, corn flour.Press the each piece of fish into the flour.And  keep them aside for at least 10 minutes.
+      
+      <br>
+      <strong style="font-size:20px">Step 2:</strong>Heat oil in a heavy bottom deep pan /kadai . Fry till golden at medium high temperature.
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>then in another bowl take ABC sauce,lemon juice and chopped green chili.After mixing brush the sauce on top of the each pieces.
+      
+      <br>
+      
+  
+      </p>
+     
+      <br>
+      <hr>
+      <br>
+      <footer>
+
+        <div class="container">
+            <small style="font-size:1.5vw;">&copy;This website is created by</small> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fzannatul-fardaush-tripty-8481241b2%3Ffbclid%3DIwAR1TQtJ4nEucIXE09jH-pxH_LYXGmaQH8QX-vE0oo3OoQV5lG6Vt6KJzr_U&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Zannatul Fardaush </a>            <small>&</small><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fnidita-roy-0537b31b0%3Ffbclid%3DIwAR2HkdKC06u1jO3yEb0IUqraysJd5p4F-vu-EnYnyxnNxQXJdIGlAJvyBJM&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA"> Nidita Roy</i></b></a>
+        </div>
+    </footer>
+    </div>
+     </div>
+    </body>
+</html>

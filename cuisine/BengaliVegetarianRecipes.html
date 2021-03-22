@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4%;
+            background-color: #259285d1;
+            color: white;
+            text-align: center;
+            font-family: Roboto;
+            font-weight: 100;
+            font-size: 1rem;
+        }
+        
+        footer>div>a {
+            color: black;
+            font-size: 1.25rem;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1c9e92e3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 5vw;
+        }
+        
+        .sidenav a,
+        .dropdown-btn {
+            padding: 1vw 2vw .5vw 5vw;
+            text-decoration: none;
+            font-size: 1.9vw;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            background-color: #34a89e;
+            cursor: pointer;
+            border: none;
+            opacity: .80
+        }
+        
+        .carousel-item {
+            display: none;
+            position: relative;
+            transition(.1s ease-in-out left);
+        }
+        
+        .sidenav a:hover {
+            color: #FFFF00;
+        }
+        
+        .dropdown-btn:hover {
+            color: #FFFF00;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 6vw;
+            font-size: 4vw;
+            margin-left: 13vw;
+        }
+        /*  #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }*/
+        /*.active {
+        background-color: green;
+        color: white;
+      }
+      */
+        
+        .dropdown-container {
+            display: none;
+            background-color: #fffff;
+            padding-left: 2vw;
+        }
+        /* Optional: Style the caret down icon */
+        
+        .fa-caret-down {
+            float: right;
+            padding-right: 2vw;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        hr {
+            border: 1px solid#34a89e;
+        }
+        
+        iframe {
+            float: right;
+            height: 50%;
+            width: 50%;
+        }
+        
+        .btn-primary {
+            float: right;
+        }
+        
+        header>h5 {
+            padding: 2px;
+            text-decoration: underline;
+            text-decoration-color: #34a89e;
+            font-size: 35px;
+        }
+        
+        div>details>summary {
+            width: 75px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+        }
+        
+        .p {
+            width: 130px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+            float: right;
+        }
+        
+        footer {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!--sidenav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
+      >
+      <a href="index.html">Home&nbsp;&nbsp;</a>
+
+        <button class="dropdown-btn">
+        Meal&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-container">
+            <button class="dropdown-btn">
+           Bengali Vegetarian Recipe&nbsp;&nbsp;
+            <i class="fa fa-caret-down"></i>
+          </button>
+            <div class="dropdown-container">
+                <a href="#hotchpotch"><small>Bengali Khichuri(Bengali Hotchpotch)</small></a>
+                <a href="#aludom"><small>NIRAMISH ALOO DUM (Veg Potato Curry)</small></a>
+                <a href="#bpolao"><small>BASANTI PULAO(SWEET YELLOW AROMATIC RICE)</small></a>
+                <a href="#kofta"><small>Kacha Kolar Koftar Dalna(Raw Banana Chop Curry)</small></a>
+                <a href="#chana"><small>Chanar Dalna(cottage cheese curry)</small></a>
+                <a href="#dal"><small>Mung Dal(Yellow Mung Bean Soup)</small></a>
+                <a href="#luchi"><small> Luchi(Bengali puffy bread)</small></a>
+                <a href="#shukto"><small>Shukto(Bengali Appetizer with Stewed vegetable)</small></a>
+                <a href="#labra"><small>Labra( Bengali Traditional Vegetable Curry)</small></a>
+                <a href="#rice"><small>Bengali Fried Rice(Sabji Polao)	</small></a>
+
+
+            </div>
+            <a href="BengaliNon-VegetarianRecipes.html"><small>Bangali Non-Vegetarian Recipe</small></a>
+            <a href="ChineseRecipe.html"><small>Chinese Recipe</small></a>
+            <a href="IndonesianRecipe.html"><small>Indonesian Recipe</small></a>
+        </div>
+        <a href="snacks.html">Snacks</a>
+        <a href="Dessert.html">Dessert</a>
+        <a href="drinks.html">Drinks</a>
+    </div>
+    <div id="main">
+        <span id="side-nav-open" style="font-size: 3vw; cursor: pointer;background-color: white;color:black;position:fixed;top:0;width:100%" onclick="openNav()">&#9776;<strong class="font-weight-bold" >Culinary & Cuisine</strong> </span
+      >
+      <script>
+        function openNav() {
+          document.getElementById("side-nav-open").style.display = "none";
+          document.getElementById("mySidenav").style.width = "25%";
+          document.getElementById("main").style.marginLeft = "25%";
+        }
+        function closeNav() {
+          document.getElementById("side-nav-open").style.display = "block";
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function () {
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script><!--Ending Sidenav-->
+      <br>
+      <br>
+      <br>
+      <br>
+<!--alert and marquee-->
+       <div class="container">
+        <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> Recipe details are directly from our kitchen or from our Moms&apos; recipe notes. 
+            Cooking videos provided here are from internet. That&apos;s why, they can vary a little bit. 
+            We apologize! You can try any of them or customize your dish in your own way. Good luck!!
+          </div>
+     <marquee class="display-2 font-weight-bold">Bengali  Vegetarian Recipes!!!</marquee>
+     </div>
+
+
+     <!--toast-->
+     
+
+
+
+
+<!--RECIPE-->
+<br>
+<div id="hotchpotch"></div>
+     <div class="container">
+         
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/khichuri.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+     </div>
+     <br>
+     <div class="container"> <details><summary>About</summary> An interesting delicacy for beautiful rainy days.
+      </details> </div>
+          <!--ending toast-->
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Bengali Khichuri(Bengali Hotchpotch)</strong></h5></header>
+      <br>
+      <ul>
+      <li>
+        1 cup rice</li>
+      <li>  2 tbsp split Bengal gram (chickpea)</li>
+        <li>2 tbsp skinned green gram or yellow moong dal(mung bean)</li>
+       <li>2 tbsp split green gram or green moong dal(mung bean)</li>
+        
+      <li>  2 tbsp pigeon pea or arhar dal</li>
+      <li>  2 tbsp pink lentil or masoor dal</li>
+       <li>1/2 cup finely chopped onion</li>
+      <li> 1/2 cup potatoes, cut into cubes</li>
+      <li>  1/2 cup capsicum, cut into cubes</li>
+      <li>  1/2 cup tomatoes, cut into cube</li>
+      <li>  1/2 tsp garlic paste</li>
+      <li> 1-2 green chillies</li>
+       <li> 2 tbsp oil</li>
+      <li>  1 tbsp ghee(clarified butter)</li>
+       <li>1/2 tsp mustard seeds</li>
+      <li>  1/2 tsp cumin seeds</li>
+      <li>  2 cloves</li>
+       <li> 3 dry red chillies</li>
+      <li> 2 bay leaves</li>
+      <li> A pinch of asafoetida or Hing</li>
+     <li>  1/2 tsp turmeric powder</li>
+       <li>1 tsp red</li>
+      <li>  chilli powder</li>
+      <li>  1/2 tsp coriander powder</li>
+      <li>  1/4 tsp garam masala powder</li>
+      <li> Salt to taste</li>
+      <li>  4-5 cup water</li>
+        <li>Chopped coriander leaves</li>
+        
+      <li>1/2 teaspoon mint leaves</li>
+      <li>salt as required</li>
+      <li>2 tablespoon refined oil</li>
+      <li>3 green cardamom</li>
+        <li>2 cloves</li>
+        <li>	2 onion</li>
+        <li>teaspoon turmeric</li>
+        <li>1 tablespoon garlic paste</li>
+        <li>	1 cup hung curd</li>
+        <li>	2 tablespoon coriander leaves</li>
+        <li>	water as required</li>
+        <li>	1 tablespoon ghee</li>
+      <li>	600 gm chicken</li>
+        <li>	1 tablespoon garam masala powder</li>
+        <li>	1 dash saffron</li>
+        <li>1 tablespoon bay leaf</li>
+        <li>	1 black cardamom</li>
+        <li>	1 teaspoon cumin seeds</li>
+        <li>	4 green chillies</li>
+        <li>1 tablespoon ginger paste</li>
+        <li>1 teaspoon red chilli powder</li>
+        <li>	1/2 tablespoon ginger</li>
+        <li>	2 drops kewra(is an essential oil distilled from the male flower of the fragrant screwpine)</li>
+        <li>1 tablespoon rose water</li>
+        <li>	Garam Masala(Cinnamon,mace,peppercons,coriander seeds,cumin seeds and cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)
+        </li>
+     
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Hotchpotch Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/GDgQuZp1WLw"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step 1:</strong>Wash the chickpeas and soak in water for 2 hours. Combine rice and all types of  grains except chickpeas. Wash them properly. Soak using enough water for 30 minutes.
+       After 30 minutes drain the water and keep it aside.<br>
+      <strong style="font-size:20px">Step 2:</strong>. Heat the ghee and oil in a pan. 
+      Add the mustard seeds and cumin seeds when oil is medium hot. When seeds start to splutter add
+       bay leaves, dry red chillies and cloves. Add onions, saute till the onions are transparent. Add garlic paste and saute till the raw aroma goes away. Add potatoes and capsicum,
+       saute for 2 minutes. Add tomatoes and mix well. 
+       <br>
+      <strong style="font-size:20px">Step 3:</strong>Add all the spices and mix well. Add drained rice and the other grains. Mix well.
+       Add 4-5 cups of water. Add salt and green chillies.<br>
+      <strong style="font-size:20px">Step 4: </strong>Cover and cook till done. Garnish the Khichuri with fried onion and coriander leaves.
+       Serve hot with a dollop of ghee.<br>
+
+
+     </p>
+    
+     
+        <!--ending toast-->
+      
+
+
+
+
+<!--RECIPE-->
+<br>
+<hr>
+<br>
+    </div>
+    <div id="aludom"></div>
+     <div class="container">
+         
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/alu dom.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+     </div>
+     <br>
+     <div class="container"> <details><summary>About</summary>Dum Aloo (also spelled as Dam Aloo) or Alu Dum is a potato based dish, it is a part of the traditional Kashmiri Pandit cuisine, from the Kashmir Valley, in the Indian state of Jammu and Kashmir. The potatoes, usually smaller ones, are first deep fried, then cooked slowly at low flame in a gravy with spices. Dum Aloo is a popular recipe cooked throughout India. In Bengal,
+       it is a specialty dish eaten mostly with Luchi and is known as "Aloor dum". </details> </div>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For NIRAMISH ALOO DUM
+            (Veg Potato Curry)
+             </strong></h5></header>
+      <br>
+      <ul>
+      <li>
+        	700 g new baby potatoes (notun alu)</li>
+    <li>	50 g peas (blanched)</li>
+    <li>30 g mustard oil</li>
+    <li>	2 pcs dried red chillies</li>
+    <li>	2 pcs bay leaves</li>
+        <li>	3 pcs cloves</li>
+        <li>	2 pcs cardamom</li>
+        <li>	1 pc cinnamon</li>
+        <li>	1/2 tsp cumin seeds</li>
+        <li>	1/4 tsp hing (asafoetida)</li>
+        <li>	1/2 tsp turmeric</li>
+        <li>	1/2 tsp red chilli powder</li>
+        <li>	1 tsp cumin powder</li>
+        <li>	11/2 tsp coriander powder</li>
+        <li>15 g ginger paste</li>
+        <li>	6 g green chilli paste</li>
+        <li>	50 g yoghurt</li>
+        <li>20 g tomato ketchup</li>
+        <li>	20 g cashewnuts (ground)</li>
+        <li>	45 g total salt</li>
+        <li>	18 g sugar</li>
+        <li>1/4 tsp bengali garam masala powder(Cinnamon,mace,peppercons,coriander seeds,cumin seeds and cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)
+        </li>
+        <li>5 g ghee(clarified butter)</li>
+        <li>	400 g hot water (for the gravy)</li>
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/lgKT3avl8j0"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step 1:</strong>Place the baby potatoes in a saucepan or boiling pot along with 30 g salt and 1 litre water. Boil the potatoes until tender. This should take about 30 minutes. Boiling the potatoes in heavily salted water ensures that they are uniformly seasoned. Besides, it also causes the potatoes to lose water, 
+      because of osmosis, improving their texture.<br>
+      <strong style="font-size:20px">Step 2:</strong>
+      Once the potatoes are tender, drain the water and peel them immediately.
+       Coat with 10 g of salt while the potatoes are still hot. This will help in further absorption of salt.<br>
+      <strong style="font-size:20px">Step 3:</strong>
+      Before you begin make a paste of cumin powder, coriander powder, ginger paste, and 25 g water, and keep at the ready. <br>
+      <strong style="font-size:20px">Step 4: </strong>Heat 30 g mustard oil in a pan. Temper it with dried red chillies, bay leaves, cloves, cardamom, cinnamon, cumin seeds, and hing. Allow the hing to fry for about 10 seconds before adding turmeric powder and red chilli powder. Fry for 20 seconds. We would normally add turmeric and red chilli to the paste we made earlier, but for this dish, frying them directly in oil will lend the gravy a rich red colour.
+       However, dry spices are prone to getting burnt in oil, so be very careful and keep the heat low.<br>
+      <strong style="font-size:20px">Step 5: </strong>Next, stir in the spice paste. Cook until the smell of raw spices is gone and they have started to release oil. This should take about 5 minutes. Meanwhile, beat the yoghurt until it is lump-free. Add it to the pan, stirring vigorously to prevent it from splitting.
+       Cook off the raw yoghurt for a couple of minutes before stirring in the ketchup.<br>
+      <strong style="font-size:20px">Step 6: </strong>Now add the boiled and salted potatoes, and fold them in. Sauté them with the spices for about 4 minutes. We’ve chosen not to fry the potatoes before adding them,
+       as boiling them directly in the curry leads to juicier potatoes.<br>
+      <strong style="font-size:20px">Step 7: </strong>Add the remaining salt (5 g) and all of the sugar to the pan, along with 400 g of hot water. This will form the gravy. Cover and allow the potatoes to simmer in the curry for about 20 minutes until
+       the gravy has reduced and the potatoes are juicy and tender. Stir regularly so the bottom doesn’t catch.<br>
+      <strong style="font-size:20px">Step 8: </strong>Once the gravy has reduced, add the ground cashew and blanched peas. Cook for a minute before garnishing with ghee and garam masala.
+       Turn off heat, cover, and allow alu’r dom to rest for 2 minutes before serving.<br>
+      
+
+
+     </p>
+     
+     
+     
+     <br>
+     <hr>
+     <br>
+    </div>
+    <div id="bpolao">
+     <div class="container">
+         
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/basanti polao.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+     </div>
+     <br>
+     <div class="container"> <details><summary>About</summary> There are two types of Polaos which we normally have in Bengal – yellow Basanti Pulao and the white Pulao. While discussing this, one of my friends from Odisha shared this beautiful information – Misti pulao of Bengal is commonly known as ” KANIKA”. Kanika is a fragrantly sweet pulao that is traditionally prepared in Orissa. It finds a place of pride among the ‘chappan bhog’ or 56 items that form part of Lord Jagannath’s menu. Before the fried rice and biryani became popular in Orissa, Kanika used to be served at all wedding feasts, picnics and family gatherings. It is stronger in flavor than a traditional pulao and also is a little sweet. Usually prepared with arua chaula ‘raw rice’ (Ambebhog/GovindBhog), one can replace it by any other aromatic rice (Basmati for example).
+      </details> </div>
+  
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For BASANTI PULAO(SWEET YELLOW AROMATIC RICE)
+             </strong></h5></header>
+      <br>
+      <ul>
+      <li>
+        	1.5 cup basmati rice, washed and soaked in water for 15 minutes</li>
+        <li>4 tbsp ghee or clarified butter(clarified Butter)</li>
+        <li>	1.5 tsp turmeric powder</li>
+        <li>5 tsp sugar</li>
+        <li>1.5 tsp ginger paste</li>
+        <li>Salt to taste</li>
+    <li>3 tbsp raisins</li>
+        <li>1/4 cup cashews</li>
+        <li>4 cloves</li>
+        <li>1-inch cinnamon stick</li>
+        <li>	2 small bay leaves</li>
+        <li>4 green cardamoms</li>
+        <li>3 cups water</li>
+        
+        	
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/67SE2Zg2AJI"></iframe></details>
+        </div>
+     <br>
+      <strong style="font-size:20px">Step 1:</strong>In a bowl, add soaked rice, pour 2 tbsp ghee, turmeric powder, ginger paste, sugar and salt. Combine everything together.
+       Make sure the rice is well coated. Keep it aside to marinate for 15 minutes.
+     <br>
+      <strong style="font-size:20px">Step 2: </strong>To the same pot, add cloves, cinnamon stick, bay leaves and green cardamoms. Cook for a minute until they become fragrant.<br>
+      <strong style="font-size:20px">Step 3: </strong>Then add the rice mixture to the pot. Stir gently to combine everything together. Cook the rice, stirring frequently, for about 2 minutes.<br>
+      <strong style="font-size:20px">Step 4: </strong>Pour water and bring it to a boil over a high flame.<br>
+      <strong style="font-size:20px">Step 5: </strong>Cover it with a lid and lower the flame to medium. Cook for about 10-15 minutes until all the water has evaporated and the rice is fully cooked.<br>
+      <strong style="font-size:20px">Step 6: </strong>Turn the flame off. Add the fried cashews and raisins. Mix everything gently.<br>
+      
+
+
+     </p>
+     <br>
+     <br>
+     <br>
+
+     </div> 
+     
+     
+     <div id="kofta">
+     <div class="container">
+         
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/kacha kolar kofta.jpg" class="img-thumbnail" style="width:55%;height:50%"/>
+     </div>
+     <br>
+     <div class="container"> <details><summary>About</summary> A veg banana chop can make you forget all the non-veg chops!</details> </div>
+  
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Kacha Kolar Koftar Dalna(Raw Banana Chop Curry)
+             </strong></h5></header>
+      <br>
+      <ul>
+      <li>
+        	2 raw banana</li>
+        	<li>2  small potato</li>
+        <li>2 green chillies</li>
+        	<li>to taste Salt</li>
+        	<li>2 tsp sugar</li>
+        	<li>2 tsp cumin seeds</li>
+        <li>	1 bay leaf</li>
+        	<li>3 tsp Turmeric powder</li>
+        	<li>1 tbs red chilli powder</li>
+        	<li>2 tsp roasted cumin powder </li>
+           <li> 2 tsp Coriander powder </li>
+        	<li>Cinnamon 1 stick</li>
+        	<li>Fennel seeds 1 tsp</li>
+        	
+        <li>	Curdamom 4 pcs</li>
+        <li>	1/4 tsp bengali garam masala powder(Cinnamon,mace,peppercons,coriander seeds,cumin seeds 
+            and cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)</li>
+        	<li>Cumin paste 1 tsp</li>
+        <li>	Ginger paste 1 tsp</li>
+        	<li>Corn flour 2 tsp</li>
+        	<li>Ghee (clarified butter) 8 tsp</li>
+        	<li>Dry chilli & Green Chilli
+        
+        	</li>
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing of Kofta</strong></h5></header>
+      <p>
+       <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/qbZRmBc3y9M"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step :</strong>Boil 1 potato and bananas with a pinch of salt and turmeric powder. Peel them, smash them, mix roasted cumin powder, 1/2 tsp red chilli powder,
+       salt to taste, corn flour  and a pinch of sugar. Give them round shapes and deep dry them.<br>
+      
+      
+      
+      <br><h5><strong> Processing of Curry</strong></h5></header>
+      <strong style="font-size:20px"> Step 1:</strong>Cut the rest potatoes in a cube shape. In a pan take Soyabean oil, fry
+       the potatoes and separate them in a bowl. <br>
+      <strong style="font-size:20px">Step 2:</strong>. Heat the same oil  with all dry spices (without garam masala), fry ,then 
+      give ginger & cumin paste, saute until the spice release oil. 
+      Give the rest cube cut potatoes and fry for 2 min.
+      
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>Give a splash of hot water, adjust sugar and salt, wait until the potatoes are 
+      80% cooked, then give the koftas and green chilli in the curry , cook for 5-10 minute.
+     <br>
+      <strong style="font-size:20px">Step 4: </strong>Turn off the gas , mix ghee and garam masala in it and cover the pot with lid.<br>
+     
+      
+
+
+     </p>
+     <br>
+     <hr>
+     <br>
+
+     
+     
+     
+     </div>
+     <div id="chana">
+     <div class="container">
+         
+      <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/chana.jpg" class="img-thumbnail" style="width:55%;height:50%"/>
+     </div>
+     <br>
+     <div class="container"> <details><summary>About</summary>A highly protien-filled veg recipe !</details> </div>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Chanar Dalna(cottage cheese curry)
+             </strong></h5></header>
+      <br>
+      
+
+      <ul>
+     
+       	<li>2  small potato(cube cut)</li>
+        <li>4 green chillies</li>
+        <li>to taste Salt</li>
+        <li>2 tsp sugar</li>
+        <li>2 tsp cumin seeds</li>
+        <li>1 bay leaf</li>
+        <li>3 tsp Turmeric powder</li>
+        <li>1 tbs red chilli powder</li>
+        <li>2 tsp roasted cumin powder </li>
+        <li>2 tsp Coriander powder </li>
+        <li>1 tsp garam masala</li>
+        <li>Cinnamon 1 stick</li>
+        <li>Fennel seeds 1 tsp</li>
+        
+        <li>Curdamom 4 pcs</li>
+        <li>1/4 tsp bengali garam masala powder(Cinnamon,mace,peppercons,coriander seeds,cumin seeds and cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)</li>
+        <li>Cumin paste 1 sp</li>
+        <li>Ginger paste 1 tsp</li>
+        <li>Ghee (clarified butter)</li>
+        <li>Dry chilli & Green Chilli</li>
+        <li>1 litre milk</li>
+        <li>2 tsp vinegar</li>
+        <li>1 chopped tomato</li>
+        
+        
+        	
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing Of Chana</strong></h5></header>
+      <p>
+       <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/Lx50WRubCcM"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step :</strong>boil the milk.  Add vinegar, then the milk will start to coagulate. Strain the cheese, take the cheese in a bowl,give it a shape,
+       and cut  the cheese in cube shapes. Then fry them a little.<br>
+      <br><h5><strong> Processing Of Curry</strong></h5></header>
+      <strong style="font-size:20px">Step 1:</strong>In a pan take Soyabean oil, fry the potatoes and separate them in a bowl. Heat the same oil with all dry spices (without garam masala), fry ,then give ginger & cumin paste, 
+      saute until the spice release oil. Give the rest cube cut potatoes and tomato and fry for 2 min. 
+      
+      <br>
+      <strong style="font-size:20px">Step 2:</strong>Give a splash of hot water, adjust sugar and salt, wait until the potatoes are  80% cooked,
+       then give the chana cubes and green chilli in the curry , cook for 5-10 minute.
+     <br>
+      <strong style="font-size:20px">Step 3: </strong>turn off the gas , mix ghee and garam masala in it and cover the pot with lid.<br>
+      
+
+
+     </p>
+     <br>
+     <hr>
+     <br>
+
+     
+     </div>
+     
+     <div id="dal">
+     <div class="container">
+    
+  <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/mung dal.jpg" class="img-thumbnail" style="width:55%;height:50%"/>
+   </div>
+
+   <div class="container"> <details><summary>About</summary>A refreshing pulse recipe for summer </details> </div>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Mung Dal(Yellow Mung Bean Soup)
+             </strong></h5></header>
+      <br>
+      
+      <ul>
+      <li>
+    100 g moong dal</li>
+        <li>500 g water</li>
+        <li>10 g soyabean oil</li>
+    <li>1 pc dried red chilli & 2 oc green chilli</li>
+        <li>1 pc bay leaf</li>
+        <li>1 pc green chilli</li>
+        <li>1/4 tsp cumin seeds</li>
+        <li>1 tsp cumin paste</li>
+        <li>	8 g salt</li>
+        <li>10 g sugar</li>
+        <li>	 tsp turmeric</li>
+        <li>8 g ghee(clarified butter)</li>
+        <li>	Fennel seed 1 pinch
+        
+        	</li>
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/3JxDY-cadZ8"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step 1:</strong>Wash and rinse the bean, Roast them, and boil it with 550 g water until cooked.
+       The dal should be soft. Don’t give salt in that time.<br>
+      <strong style="font-size:20px">Step 2:</strong>
+      In a pan, take soyabean oil,heat the oil with spices, give the cumin paste, 
+      saute  until it release oil,give sugar and salt to taste ,then give the boiled bean with water, boil,give green chilli .
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>
+      At last give 1 tsp ghee in it. And turn off the gas.
+     <br>
+      
+
+
+     </p>
+     <br>
+     <hr>
+     <br>
+     </div>
+     
+     <div id="luchi">
+
+     <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/luchi.jpg" class="img-thumbnail" style="width=50%;height:50%"/>
+   </div>
+     
+    
+     <div class="container">
+      <div class="container"> <details><summary>About</summary>A traditional bengali bread</details> </div>
+  
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Luchi(Bengali puffy bread)
+             </strong></h5></header>
+      <br>
+      
+
+      <ul>
+      <li>
+        3 cups all purpose flour</li>
+<li>1 cup wheat flour (optl)</li>
+<li>Salt</li>
+<li>1 tsp sugar</li>
+<li>	2 tbsp ghee +1 tbs oil</li>
+<li>Hot water to knead the dough</li>
+
+        
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/qH1kB0u35dI"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step 1:</strong>Mix dry ingredients ghee and oil,distribute it evenly and a fistful of flour will hold its shape.<br>
+      <strong style="font-size:20px">Step 2:</strong>Now add hot water and knead well for 8 to 10 minutes.Kneading will helps the gluten to develop and this helps luchis to puff up.
+      
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>Cover and rest for 30 minutes.Resting is important as it helps to relax and lose some of it’s elastisity,so when we roll out the luchis they retain it’s shape and they don’t spring back.
+      (that’s a great tip when working with all purpose flour) Here you can see after and before resting.(it holds the shape)
+     <br>
+      <strong style="font-size:20px">Step 4: </strong>	Divide the balls into equal portions and roll it out into small circles<br>
+      <strong style="font-size:20px">Step 5: </strong>Heat oil in a kadai and deep fry it until light golden.Press with back of a ladle to puff it up.<br>
+      <strong style="font-size:20px">Step 6: </strong>Serve it.<br>
+     
+
+
+     </p>
+     <br>
+     <hr>
+     <br>
+     </div>
+    
+    <div id="shukto">
+     <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/shukto.jpg" class="img-thumbnail" style="width=50%;height:50%"/>
+   
+     
+     </div><div class="container">
+        
+    <div class="container"> <details><summary>About</summary>A healthy and tasty vegetarian recipe!</details> </div>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Shukto(Bengali Appetizer with Stewed vegetable)
+             </strong></h5></header>
+      <br>
+      <ul>
+      <li>
+        Papaya(1/2 cup)</li>
+<li>Blanched green Bananas(1/2 cup)</li>
+
+<li>Eggplants(1/2 cup)</li>
+
+<li>Bitter gourd(1/2 cup)</li>
+
+<li>Ridged gourd(1/2 cup)</li>
+
+<li>Horseradish(1/2 cup)</li>
+
+<li>Mustard seed 1 tsp</li>
+<li>Mustard seed paste 1 tsp</li>
+<li>Milk 1/2 cup</li>
+<li>Sugar </li>
+<li>Salt</li>
+<li>Ginger paste tsp</li>
+<li>Ghee(clarified butter)</li>
+<li>Radhuni(trachyspermum roxyburghianum) </li>
+
+        
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/Ia2MzLxJhno"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step 1:</strong>Heat the oil with mustard seeds. 
+      Give all the vegetables in the pan(without bitter gourd). Give radhuni and cover the pot with lid. <br>
+      <strong style="font-size:20px">Step 2:</strong>After 10 minute give that bitter gourd and salt and sugar to taste. 
+      Slow cook for some time until the vegetables are 50% cooked. 
+      
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>
+      Then give half cup milk & half cup water. If the vegetables are 90% cooked give that ginger paste and mustard paste.
+       After 5 minutes, give 1 tsp of ghee in that pan and cover the pot with lid and turn off the gas.
+     <br>
+     
+
+
+     </p>
+     <br>
+     <hr>
+     <br>
+     </div>
+    
+    <div id="labra">
+
+     <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/labra.jpg" class="img-thumbnail" style="width=50%;height:50%"/>
+   </div>
+     
+    <div class="container">
+      <div class="container"> <details><summary>About</summary>A vegetarian recipe for festivals!</details> </div>
+  
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Labra( Bengali Traditional Vegetable Curry)
+             </strong></h5></header>
+      <br>
+      
+
+      <ul>
+      <li>
+        	2 Potatoes (cut, lengthwise)</li>
+<li>2 Brinjals/Eggplants, chopped</li>
+<li>2 Radish, chopped</li>
+<li>2 Cups Cabbage, chopped</li>
+<li>1small  Cauliflower (cut into pieces)</li>
+<li>1  small Pumpkin (cut into pieces)</li>
+<li>1/2 tsp Panch Phoran(Cumin: 2 tsp,Nigella: 1/2 tsp,Fenugreek: 1 tsp,Carom seeds/Radhuni: 2 tsp,Mustard seeds: 1 ts,(Fennel seed))</li>
+<li>	1/2  tsp Coriander seed</li>
+<li>1 tsp Ginger paste </li>
+<li>1 tsp Cumin paste</li>
+<li>1 tsp Coriander powder</li>
+<li>	Bay leaf 3 pcs</li>
+<li>1 tsp Dry chilli powder</li>
+<li>3-4 Green chilies (slit)</li>
+<li>Soyabean oil</li>
+<li>1/2 tsp Turmeric powder</li>
+<li>Ghee(Clarified Butter)</li>
+
+        
+        
+      </ul>
+     
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong> Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/8dAf3UetAtw"></iframe></details>
+        </div>
+      <strong style="font-size:20px"> Step 1:</strong>Fry the Eggplants and blanch the other vegetables<br>
+      <strong style="font-size:20px">Step 2:</strong>. Heat the oil with panch Phoron and then give coriander seed, and dry 
+      chilli, fry, then give ginger, cumin paste and coriander powder, saute until the spice release oil , then  give salt and sugar to taste and give the vegetables in the pan, slow cook, boil the vegetables well,
+       give green chilli and stir well then give 1 tsp ghee and turn off the gas and cover the pot.
+      
+      <br>
+      
+      
+
+
+     </p>
+     <br>
+     <hr>
+     <br>
+</div>
+
+<div id="rice">
+     
+     <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/sabji polao.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+   </div>
+   <hr>
+
+   
+    
+
+
+
+
+<!--RECIPE-->
+<br>
+   <div class="container">
+    <details><summary>About</summary>Bengali Style Fried Rice</details>
+    <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+      <br><h5><strong>For Bengali Fried Rice(Sabji Polao)</strong></h5></header>
+    <br>
+    <ul>
+    <li>	300 g basmati rice</li>
+      <li>100 g carrots</li>
+      <li>100 g beans</li>
+      <li>50 g peas</li>
+      <li>4 pcs bay leaves</li>
+      <li>1 stick cinnamon</li>
+      <li>>4 pcs cardamom</li>
+      <li>	4 pcs cloves</li>
+      <li>	25 g cashew nuts</li>
+      <li>>25 g raisins</li>
+      <li>6 pcs green chillies</li>
+      <li>>1/2 tsp peppercorns</li>
+      <li>	1/2 tsp garam masala powder(Cinnamon,mace,peppercons,coriander seeds,cumin seeds 
+        and cardamom pods are toasted in a pan to release their aromatic flavours, then ground to a powder)</li>
+      
+      <li>16 g salt</li>
+      <li>26 g sugar</li>
+      <li>10 g ghee</li>
+      <li>15 g vegetable oil</li>
+      
+      </li>
+    </ul>
+    <br>
+    <header><h1><strong>D</strong><small>irection</small></h1><hr>
+      <br><h5><strong>Processing</strong></h5></header>
+    <p>
+      <div class="container">
+        <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/dv9P13Y6UZo"></iframe></details>
+      </div>
+   
+    <strong style="font-size:20px"> Step 1:</strong>
+    	Wash and boil the rice in a pot full of water until it is 90 per cent tender. Drain the water and spread the rice over a colander so that it doesn’t cook any further.
+<br>	Dice the carrots in 1-cm cubes. Chop the beans on the bias (in 1-cm sections) for a nice trapezoid shape. Shell the peas. Slit the green chillies.
+<br>	Freshly grind the peppercorns so that you have about 1/2 tsp pepper. Mix it with the garam masala powder, salt, and sugar. Combining the spices and seasoning before adding them to the rice will ensure even distribution.
+<br>
+    <strong style="font-size:20px">Step 2:</strong>Set a pan on medium heat and add vegetable oil and ghee to it. Once hot, temper the oil with the bay leaves, cinnamon, cardamom, cloves, and about five peppercorns.
+  <br>	Add the cashewnuts and fry them until they are lightly coloured. We don’t want them completely golden at this stage as they will fry throughout the cooking process.
+    <br>	Turn up the heat and add the carrots. Stir-fry them for 2 minutes before adding the beans. Fry the beans for 2 minutes and then add the peas and raisins. Keeping the heat high ensures that the veggies retain their vibrant colours and don’t lose crunch.
+    <br>
+    <strong style="font-size:20px">Step 3:</strong>	Turn off the heat and layer half the cooked rice over the vegetables. Sprinkle half the premixed seasoning. Top off with the remaining rice and seasoning. Also add the green chillies.
+    <br>	To mix the rice thoroughly while ensuring minimal breakage of the grains, use the fold and rotate motion as shown in the video. Do this until everything is well combined.
+    <br>	Cover the pan and set it over the lowest heat setting for about 20 minutes and steam until the rice has cooked completely. Check once or twice to see that the rice isn’t sticking to the bottom of the pan. Rest for at least 10 minutes before serving.
+    <br>
+    <br>
+
+
+   
+    </p>
+    <br>
+    <hr>
+    <br>
+   </div>
+
+
+    <footer>
+
+      <div class="container">
+          <small style="font-size:1.5vw;">&copy;This website is created by</small> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fzannatul-fardaush-tripty-8481241b2%3Ffbclid%3DIwAR1TQtJ4nEucIXE09jH-pxH_LYXGmaQH8QX-vE0oo3OoQV5lG6Vt6KJzr_U&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Zannatul Fardaush </a>            <small>&</small><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fnidita-roy-0537b31b0%3Ffbclid%3DIwAR2HkdKC06u1jO3yEb0IUqraysJd5p4F-vu-EnYnyxnNxQXJdIGlAJvyBJM&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA"> Nidita Roy</i></b></a>
+      </div>
+  </footer>
+      </div>
+      </div>
+      </body>
+      </html>
