@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4%;
+            background-color: #259285d1;
+            color: white;
+            text-align: center;
+            font-family: Roboto;
+            font-weight: 100;
+            font-size: 1rem;
+        }
+        
+        footer>div>a {
+            color: black;
+            font-size: 1.5rem;
+        }
+        
+        footer {
+            text-align: center;
+        }
+        
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #1c9e92e3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 5vw;
+        }
+        
+        .sidenav a,
+        .dropdown-btn {
+            padding: 1vw 2vw .5vw 5vw;
+            text-decoration: none;
+            font-size: 1.9vw;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+            background-color: #34a89e;
+            cursor: pointer;
+            border: none;
+            opacity: .80
+        }
+        
+        .carousel-item {
+            display: none;
+            position: relative;
+            transition(.1s ease-in-out left);
+        }
+        
+        .sidenav a:hover {
+            color: #FFFF00;
+        }
+        
+        .dropdown-btn:hover {
+            color: #FFFF00;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 6vw;
+            font-size: 4vw;
+            margin-left: 13vw;
+        }
+        /*  #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }*/
+        /*.active {
+        background-color: green;
+        color: white;
+      }
+      */
+        
+        .dropdown-container {
+            display: none;
+            background-color: #fffff;
+            padding-left: 2vw;
+        }
+        /* Optional: Style the caret down icon */
+        
+        .fa-caret-down {
+            float: right;
+            padding-right: 2vw;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        hr {
+            border: 1px solid#34a89e;
+        }
+        
+        iframe {
+            float: right;
+            height: 50%;
+            width: 50%;
+        }
+        
+        .btn-primary {
+            float: right;
+        }
+        
+        header>h5 {
+            padding: 2px;
+            text-decoration: underline;
+            text-decoration-color: #34a89e;
+            font-size: 35px;
+        }
+        
+        div>details>summary {
+            width: 75px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+        }
+        
+        .p {
+            width: 130px;
+            background: #007bff;
+            padding: .5rem .75rem;
+            border-radius: .25rem;
+            border-color: #007bff;
+            color: white;
+            float: right;
+        }
+        
+        footer {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!--sidenav-->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
+      >
+      <a href="index.html">Home&nbsp;&nbsp;</a>
+
+        <button class="dropdown-btn">
+        Meal&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-container">
+            <a href="BengaliVegetarianRecipes.html"><small>Bengali Vegetarian Recipe</small></a>
+            <a href="BengaliNon-VegetarianRecipes.html"><small>Bengali Non-Vegetarian Recipe</small></a>
+            <a href="ChineseRecipe.html"><small>Chinese Recipe</small></a>
+            <a href="IndonesianRecipe.html"><small>Indonesian Recipe</small></a>
+        </div>
+        <a href="snacks.html">Snacks</a>
+        <button class="dropdown-btn">
+          Dessert&nbsp;&nbsp;
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+
+            <a href="#1"><small>Vapa Pitha(Steamed Rice Sweet)
+            </small></a>
+            <a href="#2"><small>Dudh Puli(COCONUT STUFFED DUMPLING IN SPICE INFUSED MILK)</small></a>
+            <a href="#3"><small>Chitoi Pitha(Bangladeshi Style Rice Pancake)</small></a>
+            <a href="#4"><small>Narkel NaruCoconut & Jaggery Sweet Balls)
+            </small></a>
+            <a href="#5"><small>Kheer Sondesh(Dried Milk Sweet)</small></a>
+            <a href="#6"><small>Patishapta(A Sweet Bengali Roll)
+            </small></a>
+            <a href="#7"><small>Egg Pudding</small></a>
+            <a href="#8"><small>Gulab Jamun</small></a>
+            <a href="#9"><small>Chocolate Brownie</small></a>
+            <a href="#10"><small>Chocolate Mousse</small></a>
+            <a href="#11"><small>Kachagolla</small></a>
+            <a href="#12"><small>Rasgulla</small></a>
+
+        </div>
+        <a href="drinks.html">Drinks</a>
+    </div>
+    <div id="main">
+        <span id="side-nav-open" style="font-size: 3vw; cursor: pointer;background-color: white;color:black;position:fixed;width:100%;top:0" onclick="openNav()">&#9776;<strong class="font-weight-bold" >Culinary & Cuisine</strong> </span
+      >
+      <script>
+        function openNav() {
+          document.getElementById("side-nav-open").style.display = "none";
+          document.getElementById("mySidenav").style.width = "25%";
+          document.getElementById("main").style.marginLeft = "25%";
+        }
+        function closeNav() {
+          document.getElementById("side-nav-open").style.display = "block";
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function () {
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+      </script><!--Ending Sidenav-->
+      <br>
+      <br>
+      <br>
+      <br>
+      
+<!--alert and marquee-->
+       <div class="container">
+        <div class="alert alert-info alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> Recipe details are directly from our kitchen or from our Moms’ recipe notes. 
+            Cooking videos provided here are from internet. That’s why, they can vary a little bit. 
+            We apologize! You can try any of them or customize your dish in your own way. Good luck!!
+          </div>
+     <marquee class="display-2 font-weight-bold"> Dessert Recipes!!!</marquee>
+     </div>
+  <div id="1">
+     <div class="img-container" style="text-align:center;">
+        <img src="imagereciepe/vapa pitha.jpg" class="img-thumbnail" style="width:40%;height:30%"/>
+     </div>
+     <hr>
+
+     
+
+
+
+
+<!--RECIPE-->
+<br>
+     <div class="container">
+        <details><summary>About</summary>Bhapa pitha is a type of rice cake mainly from the eastern part of the Indian subcontinent, 
+          what is today Bangladesh, East India and Northeast India. Bhapa pitha is considered to be traditional winter dish in Bangladesh. These are steamed rice cakes made out of freshly ground rice flour. The filling is composed of coconut and date molasses. Either brown sugar or jaggery can often be used as a substitute for the molasses. It is believed to be originated in the region of ancient Kamrup i.e. today&apos;s Assam and then was spread to its nearby regions. In Assam it is known as ketli/tekeli pitha and is generally 
+          made on special occasions like Bihu with a specific rice known as "Bora Sual".</details>
+      <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+        <br><h5><strong>For Vapa Pitha(Steamed Rice Sweet) </strong></h5></header>
+      <br>
+      <ul>
+      <li>1 cup parboiled rice </li>
+       <li>2 tablespoon store-bought rice flour</li>
+       <li>  a pinch of salt</li>
+        <li> ½ cup water</li>
+        <li> 1 fresh coconut</li>
+         <li> jaggery (prefer khejur gur, molasses from silver date palm). </li>
+      </ul>
+      <br>
+      <header><h1><strong>D</strong><small>irection</small></h1><hr>
+        <br><h5><strong>Processing</strong></h5></header>
+      <p>
+        <div class="container">
+          <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/Q-96pnSQqqc"></iframe></details>
+        </div>
+     
+      <strong style="font-size:20px"> Step 1:</strong>Soak the rice overnight for at least 5/6 hours. Drain the water and let the rice drained out well. Now grind it in a grinder. 
+      Mix some water in a way that the flour must seem wet, not dry at all. Neither should it look like batter. Now sieve the flour through the strainer. 
+      <br>
+      <strong style="font-size:20px">Step 2:</strong>Take two pieces of clean cotton cloth and two small bowls. then add the coconut and jaggery. Cover it with another layer of flour. Don’t press too much or else, it will break down while placing it for steaming. 
+      Cover it with a piece of cloth and put it in the steamer. Tap the bowl slightly, so that you can remove the bowl easily. Remove the bowl and cover the pitha with the remaining ends of the cloth.
+      <br>
+      <strong style="font-size:20px">Step 3:</strong>Then steam for 4/5 minutes. Prepare the same way using the other bowl and cloth. You have to remove one pitha and place another. 
+      After a while, you may serve the hot delicious vapa pitha. Of course, you have to serve the pitha in the hot condition. Only then vapa pitha is very tasty.
+      <br>
+      <br>
+
+
+      
+      </p>
+      <br>
+      <hr>
+      <br>
+     </div>
+  </div>
+    
+     <div id="2">
+     
+     <div class="img-container" style="text-align:center;">
+      <img src="imagereciepe/dudh puli.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+   
+   <hr>
+
+   
+
+
+
+
+<!--RECIPE-->
+<br>
+   <div class="container">
+      <details><summary>About</summary>A Sweet dish submerged in milk!</details>
+    <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+      <br><h5><strong>For DUDH PULI PITHA (COCONUT STUFFED DUMPLING IN SPICE INFUSED MILK) </strong></h5></header>
+    <br>
+    <ul>
+    <li>2 cups desiccated coconut, unsweetened</li>
+     
+    <li>1 cup milk</li>
+      <li>jaggery</li>
+    
+      <li>2 cups Rice flour</li>
+      <li>1 cup water</li>
+      <li>1/8 teaspoon salt</li>
+       <li>milk</li>
+      <li>4 cups milk</li>
+      
+      <li>1 cup sugar</li>
+      <li>3-4 small cardamom</li>
+      </li>
+    </ul>
+    <br>
+    <header><h1><strong>D</strong><small>irection</small></h1><hr>
+      <br><h5><strong>Processing</strong></h5></header>
+    <p>
+      <div class="container">
+        <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/2m301mBiUls"></iframe></details>
+      </div>
+   
+    <strong style="font-size:20px"> Steps to make coconut filling:</strong>	Mix coconut, jiggery on a nonstick pan.  <br>
+    The mixture will be semi sticky but not runny.<br>
+    Turn on stove and stir constantly until the mixture becomes slightly sticky.<br>
+    <br>
+    <strong style="font-size:20px">Steps to make dumplings:</strong>	Boil water.  
+    <br>Add salt.<br>
+      Turn off stove and add rice flour to boiling water to form a firm but soft and not sticky dough. <br>
+       The dough should bounce back if you press with a finger.  Adjust flour accordingly.<br>
+    	Knead well for about 5 minutes.<br>
+    	Take part of the dough and roll it out as thick as a tortilla.<br>
+    	Cut out circles with a cookie cutter.<br>
+    	Place a small amount of coconut filling on each circle.<br>
+    	Brush the edges of with water and seal tightly to form a crescent (semi-circular) shape.<br>
+    <br>
+    <strong style="font-size:20px">	Steps to cook dumplings:</strong>
+    	Boil 4 cups milk and cardamom together in a non stick pan.<br>
+    Add sugar and dissolve in the boiling milk.<br>
+    Add the dumplings and cook about 30-45 minute in medium-low heat or until dumplings are cooked.<br>
+    <br>
+    <br>
+
+
+    
+    </p>
+    <br>
+    <hr>
+    <br>
+   </div>
+     </div>
+     <div id="3">
+   <div class="img-container" style="text-align:center;">
+    <img src="imagereciepe/chitoi pitha.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+ </div>
+ <hr>
+
+ 
+
+
+
+
+<!--RECIPE-->
+<br>
+ <div class="container">
+    <details><summary>About</summary>A bengali style pancake!</details>
+  <header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+    <br><h5><strong>For Chitoi(Bangladeshi Style Rice Pancake) </strong></h5></header>
+  <br>
+  <ul>
+  <li>	Atop chal/Polau chal - 2 cups</li>
+    <li>	Lukewarm water - as required</li>
+    <li>Salt - as required
+    </li>
+  </ul>
+  <br>
+  <header><h1><strong>D</strong><small>irection</small></h1><hr>
+    <br><h5><strong>Processing</strong></h5></header>
+  <p>
+    <div class="container">
+      <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/G1qLefZK0YI"></iframe></details>
+    </div>
+ 
+  <strong style="font-size:20px"> Step 1:</strong>1.	Soak the rice for two hours.<br>
+  2.	After two hours drain all water.<br>
+  3.	Pour the soaked rice into blender, along with salt and warm water as required.<br>
+  4.	Blend then until smooth paste.<br>
+  5.	Keep the batter into refrigerator for at least two hours, preferable to over night.
+  <br>
+  <strong style="font-size:20px">Step 2:</strong>1.	Heat a chitoi pithe mold or cast iron wok on high heat.<br>
+  2.	Reduced heat to medium.<br>
+  3.	Pour 1/4 cup batter and cover it for 2-3 minutes.<br>
+  4.	Remove gently the edges of pitha, then remove fully from wok.<br>
+ 
+  <br>
+  <strong style="font-size:20px">Step 3:</strong> 	Repeat the same process to make all pitha.
+  	Serve hot with coriander chutney or meat.
+  <br>
+  <br>
+
+
+  
+  </p>
+  <br>
+  <hr>
+  <br>
+ </div>
+     </div>
+     <div id="4">
+ <div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/narkel naru.jpg" class="img-thumbnail" style="width:40%;height:30%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>A round shaped bengali sweet!</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For	Narkel Naru(Coconut & Jaggery Sweet Balls)</strong></h5></header>
+<br>
+<ul>
+<li>2 cups fresh grated coconut</li>
+	<li> 1 cup organic jaggery powder or organic grated jaggery</li>
+  <li>	 some ghee for greasing palms, you can also use coconut oil
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/-QzDTb6tqHw"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>First heat a heavy kadai.
+ Reduce the flame to a low and add 2 cups fresh grated coconut.
+Stirring often roast the coconut for 4 to 5 minutes. Do not brown the coconut. 
+The roasting is just to get rid of some moisture from the coconut.
+
+<br>
+<strong style="font-size:20px">Step 2:</strong>Then add 1 cup jaggery powder or grated jaggery.
+	Mix it very well with the coconut.
+	Stirring non-stop cook the coconut and jaggery mixture for about 6 to 7 minutes.6.
+  The jaggery will melt and mixture will slightly thicken. Do not cook too much as then the ladoos can become hard. 
+  To test take a small portion and let it cool down a bit. Then try to form a tiny ladoo with it. If the mixture easily 
+  can be shaped into a tiny ball, the ladoo mixture is ready.
+	Switch off the flame and keep the pan on the countertop.
+<br>
+<strong style="font-size:20px">Step 3:</strong>	Mix very well and let this mixture cool down completely.
+	Spread a bit of ghee in your palms and taking small to medium sized portions make the ladoos. instead of ghee you can also use coconut oil.
+  Store them in an air-tight container and refrigerate. 
+  Depending on the color of jaggery, the color of ladoos will vary from light brown to dark brown. This recipe makes about 10 ladoos.
+	Serve narkel naru recipe as a sweet.
+<br>
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+</div>
+<div id="5">
+<div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/kheer sondesh.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>A designer bengali dry sweet!</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Kheer Sondesh(Dried Milk Sweet) </strong></h5></header>
+<br>
+<ul>
+<li>	1 litre milk</li>
+ <li>Sugar – ¾ cup</li>
+ <li>Ghee (clarified butter)
+  ________________________________________
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/VqiGW_ead_k"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>Mix all the ingredients.
+Heat all the ingredients remembering to stir continuously. Keep on stirring for at least 20 minutes. 
+You will see that the mixture is reducing in quantity.
+Remove from heat. Stir to mix well.
+<br>
+<strong style="font-size:20px">Step 2:</strong>The mixture should come together to a consistency that can be molded.
+Let the mixture cool off completely
+Once cold, take about 2-3 tbsp and make a ball. Flatten the ball between the palm of your hands.
+Lightly press the mold on top of it and store aside. Repeat until you are done with the mixture.
+________________________________________
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+</div>
+<div id="6">
+<div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/patishapta.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>Bengali Style Rolled Sweet!</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Patishapta(A Sweet Bengali Roll)</strong></h5></header>
+  <br><h5><strong>For THE KHEER</strong></h5></header>
+<br>
+<ul>
+<li>1.5 kg milk</li>
+  <li>	65 g sugar
+  
+  </li>
+</ul>
+<br>
+<br><h5><strong>FOR THE CRÊPE</strong></h5></header>
+<br>
+<ul>
+<li>1 cup flour</li>
+ <li>1 cup Chinigura rice flour</li>
+  <li>1.5 cup milk</li>
+<li>1 cup water</li>
+ <li> 1 pinch of salt</li>
+  
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/cgXjYYB2tLs"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>In a mixing bowl, add the flour, rice flour, sugar (30 g), salt (¼ tsp),milk and water.
+Mix the ingredients together till they are more or less combined. Do not over-mix or your crêpes may turn out chewy.
+Cover the batter and set it aside to rest, for 2 hours. \
+While your batter is resting, prepare the kheer, which will form the filling for our patishapta.
+<br>
+<strong style="font-size:20px">Step 2:</strong>Take 1.5 kg milk in a heavy-bottom saucepan and set it to boil.
+	Once bubbling, stir in 65 g sugar.
+Keep boiling the milk, while stirring it continuously, for about 90 minutes.
+During this entire time, the pot should be on medium to low heat.
+	At regular intervals of 3–4 minutes, be sure to scrape the solids from the bottom and sides of the pot, and incorporate them into the boiling milk. This step, as well as the previous one, is crucial. We don’t want our kheer to burn at any point.
+	Once the milk has thickened such that when you lift some of it on your spoon and drop it, it falls in clumps.
+	Add this paste to the pot. Stir and cook for another 5 minutes.
+Allow the kheer to cool before proceeding to the next stage.
+<br>
+<strong style="font-size:20px">Step 3:</strong>	Divide the kheer in equal portions of 22 g each.
+	Give your batter a quick stir till it is uniform.
+  Now, set a non-stick pan on medium-low flame and allow it to heat up completely.
+  	Once the pan is hot, smear it with a very, very light coating of ghee(remember, we are already using a non-stick pan).
+	Using a ladle, take about 25 g of the batter and drop it in the centre of the pan.
+	Swirl it around gradually to form a thin crêpe, about 12 cm in diameter.
+	Roll a portion of the kheer between your palms to form a log (about 8 cm long), and flatten it with your fingers.
+	Place it at one end of the crêpe and start folding the crêpe into a roll, with the help of a spatula. [Note that we are cooking only one side of the crêpe.]
+Transfer the patishapta from the pan to a plate and proceed making the rest. These can be eaten hot, or they can be cooled and stored in the refrigerator for up to 7 days.
+<br>
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+</div>
+<div id="7">
+<div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/egg pudding.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>In the United States and some parts of Canada, pudding characteristically denotes a sweet milk-based dessert similar in consistency to egg-based custards, instant custards or a mousse, 
+    often commercially set using cornstarch, gelatin or similar collagen agent such as the Jell‑O brand line of products.
+
+    In Commonwealth countries these puddings are known as custards (or curds) if they are egg-thickened, as blancmange if starch-thickened, and as jelly if gelatin-based. Pudding may also refer to other dishes such as bread pudding and rice pudding, although typically these names derive from their origin as British dishes.</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Egg pudding</strong></h5></header>
+<br>
+<ul>
+<li>Eggs - 3</li>
+  <li>	Sugar - 10 tbsp</li>
+  <li>	Milk - 2 cup</li>
+  <li>	Vanilla essence - 1/2 tsp</li>
+  <li>Sugar (for caramel) - 2 tsp
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/OQk0tXPeOjY"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>Caramelise a steel bowl with 2 tsp of sugar
+	Add all the ingredients to another bowl and mix well until the sugar dissolves
+<br>
+<strong style="font-size:20px">Step 2:</strong>	Pour this mixture into the caramelised bowl and keep in the cooker with 1/2 cup water
+Pressure cook this mixture for 10 minutes and remove from the cooker after the pressure subsides
+<br>
+<strong style="font-size:20px">Step 3:</strong>	Refrigerate and serve<br>
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+</div>
+<div id="8">
+<div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/gulab jamun.jpg" class="img-thumbnail" style="width:40%;height:30%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>Gulab jamun (also spelled gulaab jamun) is a milk-solid-based sweet from the Indian subcontinent, and a type of mithai, popular in India, Nepal, Pakistan (where it is known as gulab jamun), the Maldives (where it is known as gulaabujaanu), and Bangladesh (where it is known as gulab jam), as well as Myanmar. It is also common in Mauritius, Fiji, the Malay Peninsula, South Africa, and the Caribbean countries of Trinidad and Tobago, (where it is called rasgulla), Guyana, and Suriname. It is made mainly from milk solids, traditionally from khoya, which is milk reduced to the consistency of a soft dough. Modern recipes call for dried or powdered milk instead of khoya. 
+    It is often garnished with dried nuts such as almonds and cashews to enhance flavour.</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Gulab Jamun </strong></h5></header>
+  <br><h5><strong>For Sugar Syrup </strong></h5></header>
+<br>
+<ul>
+<li>2 cups Sugar</li>
+  <li>5 cups Water</li>
+  <li>	1 tsp Milk</li>
+  <li>	1/4 tsp Cardamom Seeds</li>
+  <li>	1/2 tsp Saffron</li>
+  <li>1/2 tsp Cardamom Powder
+  </li>
+</ul>
+<br>
+<h5><strong>For Gulab Jamun Balls  </strong></h5></header>
+<br>
+<ul>
+<li>1/2 cups Khoya, grated</li>
+<li>1/2 tsp Baking Soda</li>
+<li>1/2 cup Maida</li>
+  <li>	1 tsp Milk
+  
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/P6bfQGCbJ5k"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>Take required quantity of sugar and water in a deep pan. Stir and bring to boil on high flame for sugar to dissolve.
+Now add milk and cardamom seeds to the sugar water. Boil further and strain.
+Then add saffron and cardamom powder and bring the mixture to rolling boil for about 5-6 minutes until it becomes little sticky.
+<br>
+<strong style="font-size:20px">Step 2:</strong>Take the grated Khoya in a medium size deep bowl.
+	Add baking soda and maida. Combine them thoroughly but gently using a spoon.
+	Add a teaspoon of milk to it and knead all of them together to make a smooth and soft dough. Add another teaspoon of milk if required.
+	Make sure that the dough is a bit softer to avoid cracking of ball while deep frying.
+<br>
+<strong style="font-size:20px">Step 3:</strong>Divide the dough into equal parts and make smooth surfaced balls out of it.
+	Now heat ghee in a pan over medium flame and add the Jamun balls to deep-fry them. Cook evenly until it becomes golden brown.
+	Make sure that you do not cook on high flame otherwise the balls will burn.
+Now drain and let them cool for few minutes.
+Then immerse the gulab jamuns in the warm sugar syrup for at least 30 minutes. It increases in size when it soaks the sugar syrup.
+	Hot and tasty sweet dish is ready to serve.
+<br>
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+</div>
+<div id="9">
+<div class="img-container" style="text-align:center;">
+  <img src="img/brownie.jpg" class="img-thumbnail" style="width:50%;height:30%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>A chocolate brownie or simply a brownie is a square or rectangular 
+    chocolate baked confection. Brownies come in a variety of forms and may be either fudgy or cakey, depending on their density. They may include nuts, frosting, cream cheese, chocolate chips, or other ingredients. A variation made with brown sugar and vanilla rather than chocolate in the batter is called a blond brownie or blondie. The brownie was developed in the United States at the end of the 19th 
+    century and popularized in the U.S. and Canada during the first half of the 20th century.</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Chocolate brownies </strong></h5></header>
+<br>
+<ul>
+<li>	200g dark chocolate</li>
+  <li>	100g unsalted butter, very soft</li>
+  <li>250g caster sugar</li>
+  <li>	4 large free range eggs, beaten to mix</li>
+  <li>	1tsp vanilla essence</li>
+  <li>	60g plain flour</li>
+  <li>60g cocoa powder
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/lIb_741_dIw"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>•Heat the oven to 180C, gas  Break up the dark chocolate. Put into a heatproof bowl 
+and melt gently in a pan over simmering water, making sure the water doesn’t touch the base of the bowl. 
+Remove the bowl from the heat and leave to cool until needed.
+	Put the butter and sugar into the bowl of a food mixer and beat until fluffy. Gradually beat in the eggs, beating well after each addition. Beat in the vanilla essence.
+•Spoon the cooled melted chocolate onto the mixture then mix in thoroughly. Sift the flour and cocoa powder onto the mixture and gently stir in.
+<br>
+<strong style="font-size:20px">Step 2:</strong>	When completely combined, spoon the mixture into a greased and lined tin and spread the mixture evenly.
+	Bake in the heated oven for about 20 mins until the chocolate brownies are firm to the touch but still a bit fudgy. The chocolate will continue to cook slightly for a few mins after coming out of the oven.
+<br>
+<strong style="font-size:20px">Step 3:</strong>•	Remove the tin from the oven and set on a wire cooling rack. Leave the chocolate brownies to cool completely before cutting into pieces. 
+Store the brownies in an airtight container and eat within 4 days.<br>
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+</div>
+<div id ="10">
+<div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/mousse.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>A mousse (/ˈmuːs/; French: [mus]; "foam") is a soft prepared food that incorporates
+     air bubbles to give it a light and airy texture. It can range from light and fluffy to creamy and thick,
+     depending on preparation techniques. A mousse may be sweet or savory.</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Classic Chocolate Mousse </strong></h5></header>
+<br>
+<ul>
+<li>	¾ cup chilled heavy cream, divided</li>
+  <li>	4 large egg yolks</li>
+  <li>	¼ cup brewed espresso or strong coffee, room temperature</li>
+  <li>	⅛ teaspoon kosher salt</li>
+  <li>	3 tablespoons sugar, divided</li>
+  <li>6 ounces semisweet chocolate (60–72% cacao), chopped</li>
+  <li>2 large egg whites
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/3eXycW1fZEI"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>•	Beat ½ cup cream in a small bowl to stiff peaks; cover and chill.
+	Combine egg yolks, espresso, salt, and 2 Tbsp. sugar in a heatproof bowl. Set over a saucepan of gently simmering water (do not let bowl touch water). Cook, whisking constantly, until mixture is lighter in color and almost doubled in volume and an instant-read thermometer inserted into the mixture registers 160°, about 1 minute.
+Remove bowl from heat. Add chocolate and whisk until melted and mixture is smooth. Let sit, whisking occasionally, until room temperature.
+<br>
+<strong style="font-size:20px">Step 2:</strong>Using an electric mixer, beat egg whites in a medium bowl on medium speed until foamy. With mixer running, gradually beat in remaining 1 Tbsp. sugar. Increase speed to high and beat until stiff peaks form.
+	Fold egg whites into chocolate mixture in 2 additions; fold reserved whipped cream into mixture just to blend. Divide mousse among 6 teacups or 4-oz. ramekins. Chill until firm, at least 2 hours.
+<br>
+<strong style="font-size:20px">Step 3:</strong>	Just before serving, whisk remaining 1/4 cup cream in a
+ small bowl to soft peaks; top each cup of mousse with a dollop of cream.
+<br>	Do Ahead: Mousse can be made 1 day ahead. Cover and keep chilled. Let sit at room temperature 10 minutes before serving.
+<br>
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+</div>
+<div id="11">
+<div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/kachagolla.jpeg" class="img-thumbnail" style="width:50%;height:50%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<<div class="container">
+  <details><summary>About</summary>The amusing fact about Kachagolla is that Queen Bhabani then started greeting all her guests with Kachagolla and began sending it to royalties all over the Indian subcontinent and even in Britain. Sandesh -varieties-method of preparation-quality-packaging and shelf life.
+     Chhana obtained with citric acid is usually preferred for the manufacture of sandesh. "kachagolla".</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Kachagolla Sandesh </strong></h5></header>
+<br>
+<ul>
+<li>	Need 1 cup of chena.</li>
+  <li>	Need 3 tbsp - milk powder.</li>
+  <li>	It&apos;s 1.5 tbsp for condensed milk.</li>
+  <li>You need 1.5 tbsp sugar.
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/BWn8PtE72S8"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>Take 1/2 of chena. Add sugar to it and mash well..
+	Add mashed chena to pan. After 1 minute cooking in low flame add condensed milk and 1 thsp milk powder. Cook for 1.5 minutes to dry..
+<br>
+<strong style="font-size:20px">Step 2:</strong>Add cooked chena to rest of chena. Mix well. Spread 2 tbsp milk powder to plate.<br>
+<strong style="font-size:20px">Step 3:</strong>Make small balls of chena and roll on milk powder. Ready to serve..<br>
+<br>
+
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+     </div>
+     <div id="12">
+<div class="img-container" style="text-align:center;">
+  <img src="imagereciepe/rasgulla.jpg" class="img-thumbnail" style="width:50%;height:50%"/>
+</div>
+<hr>
+
+
+
+
+
+
+<!--RECIPE-->
+<br>
+<div class="container">
+  <details><summary>About</summary>Rasgulla is an Indian syrupy dessert popular in the Indian subcontinent and regions with South Asian diaspora. It is made from ball-shaped dumplings of chhena (an Indian cottage cheese) and semolina dough,
+     cooked in light syrup made of sugar. This is done until the syrup permeates the dumplings.</details>
+<header><h1><strong>I</strong><small>ngredients</small></h1><hr>
+  <br><h5><strong>For Rasgulla</strong></h5></header>
+<br>
+<ul>
+<li>	2 litre milk</li>
+  <li>1 1/2 cup sugar</li>
+  <li>	1 teaspoon rose water</li>
+  <li>	3 tablespoon lime juice</li>
+  <li>3 cup water</li>
+  <li>1 tablespoon all purpose flour</li>
+  <li>2 teaspoon powdered green cardamom
+  
+  </li>
+</ul>
+<br>
+<header><h1><strong>D</strong><small>irection</small></h1><hr>
+  <br><h5><strong>Processing</strong></h5></header>
+<p>
+  <div class="container">
+    <details><summary class="p">Related Video</summary><iframe src="https://www.youtube.com/embed/c_ZkvfLuCsE"></iframe></details>
+  </div>
+
+<strong style="font-size:20px"> Step 1:</strong>Making Rasgulla is a child&apos;s play, if you know the right steps and almost everyone can make this delicious mithai. Take a heavy-bottomed pan and add two litres of full-cream milk in it. When it comes to a boil, reduce the flame and add the lemon juice. Your milk may take a while to curdle and you may require to add a little more lemon. Once the milk starts curdling, keep the flame low and allow boiling for 2-3 minutes so that the whey and chhena separates.
+Switch off the gas. At this point, you can clearly see the green whey and the paneer or chhena which will separate from the water and stand out as small chunks.
+Allow the hot liquid to cool for 10-15 minutes. Now take a muslin cloth or a large strainer and strain away the whey. Wash it in running water to remove the smell of lemon. You can store this whey and use it in soups and stews or curries. It is very nutritious. Many people also like to drink it by adding a little salt or sugar.
+Tie it in the muslin cloth once the chenna cools a bit, squeezing away extra water and allow it to hang for some time. Do not refrigerate or it will make the chhena rubbery. This process may take 3-4 hours
+<br>
+<strong style="font-size:20px">Step 2:</strong>Heat water in a pan. When it comes to a boil, add sugar and allow it to simmer on low flame. After 10 minutes, check the syrup by taking a drop of the syrup in a spoon. If it is of one string consistency, your syrup is ready. Add the juice of half a lemon. This will prevent the syrup from granulating later. Also add gulab jal and cardamom powder. Switch off the gas.
+Take the chhena from the muslin cloth and keep rubbing portions of it from your hand. At this point add the maida.
+ You have to rub it so much that it becomes completely smooth and starts releasing a little oil. 
+ Once your chhena is smooth enough and much lighter in texture, make smooth round balls and keep aside.
+<br>
+<strong style="font-size:20px">Step 3:</strong>Meanwhile heat the sugar syrup again, till it reaches a boiling point. Make sure you make small balls as they will swell up once they absorb the syrup. Add the rasgullas one by one in the syrup ensuring there is enough space in the pan. Boil for 5-7 minutes on low flame. Do not stir.
+ow cover the pan and allow it to simmer on low flame for 5-7 minutes. When you remove the lid, you will be delighted to see that the rasgullas have swelled up and are looking beautiful! Switch off the flame and allow it to cool.
+The rasgullas can be enjoyed warm or cold. You can also relish them topped with fruits or ice cream.
+<br>
+<br>
+
+
+
+</p>
+<br>
+<hr>
+<br>
+</div>
+
+<footer>
+
+  <div class="container">
+      <small style="font-size:1.5vw;">&copy;This website is created by</small> <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fzannatul-fardaush-tripty-8481241b2%3Ffbclid%3DIwAR1TQtJ4nEucIXE09jH-pxH_LYXGmaQH8QX-vE0oo3OoQV5lG6Vt6KJzr_U&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA">Zannatul Fardaush </a>            <small>&</small><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fnidita-roy-0537b31b0%3Ffbclid%3DIwAR2HkdKC06u1jO3yEb0IUqraysJd5p4F-vu-EnYnyxnNxQXJdIGlAJvyBJM&h=AT0C-lWCkmfroLwK6rroOqjU--OB6cLhoVDMdWhz0bILOHX6IT8b4k3D4FZ4hT7et8HKmmfszfjH7Izg5VPAhDPB7SsnNbwB_GKRCWpWTxHf9_PowGX68a0ycNM3UITdeihrbA"> Nidita Roy</i></b></a>
+  </div>
+</footer>
+</div>
+    </div>
+</body>
+</html>
